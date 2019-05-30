@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Add New Vehicle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div padding>
+        <ion-label position="floating">Title</ion-label>
+      <ion-input type="text"></ion-input>
+    </div>
+
+    <div padding>
+        <ion-item >
+          <ion-icon name="search" class="icon-search" (click)="vehicleSearch()"></ion-icon>
+          <ion-input type="text" placeholder="Vin Number" [(ngModel)]="vinNumber" class="input-search"></ion-input>
+        </ion-item>
+    </div>
+
+    <ion-grid padding>
+        <ion-row>
+          <ion-col>
+              <ion-input disabled="true" value="Make" class="text-disable"></ion-input>
+          </ion-col>
+          <ion-col>
+              <ion-input disabled="true" value="Model" class="text-disable"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-input disabled="true" value="Model Year" class="text-disable"></ion-input>
+            </ion-col>
+            <ion-col>
+                <ion-input disabled="true" value="Color" class="text-disable"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                  <ion-input disabled="true" value="Engine" class="text-disable"></ion-input>
+              </ion-col>
+              <ion-col>
+                  <ion-input disabled="true" value="Transmision" class="text-disable"></ion-input>
+              </ion-col>
+          </ion-row>
+          <ion-row padding-top>
+              <ion-col>
+                  <ion-button expand="block">SAVE</ion-button>
+              </ion-col>
+          </ion-row>
+    </ion-grid>
+</ion-content>

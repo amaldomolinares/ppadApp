@@ -1,0 +1,38 @@
+<ion-content padding>
+  <ion-grid>
+      <ion-row class="ion-justify-content-center">
+          <ion-col padding-top>
+              <div>
+                  <ion-img src="../assets/imgs/logo_ppad.jpg"></ion-img>
+              </div>  
+          </ion-col> 
+      </ion-row>
+      
+      <ion-row class="ion-justify-content-center">
+          <ion-col>
+            <div>
+              <ion-list>
+                <ion-item padding-top>
+                    <ion-label position="floating">Email</ion-label>
+                  <ion-input type="text" [(ngModel)]="Email"></ion-input>
+                </ion-item>
+                <ion-item padding-top>
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input type="password" [(ngModel)]="Password"></ion-input>
+                  </ion-item>
+              </ion-list>
+            </div>  
+          </ion-col> 
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+          <ion-col>
+            <div padding-top>
+              <ion-button expand="block" (click)='login()' >
+                  <ion-icon name="log-in"></ion-icon>
+                    Login   
+              </ion-button>
+            </div>  
+          </ion-col> 
+      </ion-row>
+  </ion-grid>        
+</ion-content>

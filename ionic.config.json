@@ -1,5 +1,7 @@
 {
   "name": "ppadApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

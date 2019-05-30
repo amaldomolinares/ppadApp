@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Orders</ion-title>
+    <ion-buttons slot="end" class="icon-end" >
+        <ion-button (click)="addNewOrder()">
+          <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content class="card-background-page" >
+   <div class="card-div" *ngFor="let order of orders.data">
+    <ion-card  [routerLink]="'/details-order/' + order.id" routerDirection="forward">
+        
+      <img [src]="order.avatar"/>
+        <div class="card-overlay" >
+      <div class="card-title">{{order.first_name}}</div>
+      <div class="card-subtitle">{{order.last_name}}</div>
+       </div> 
+    </ion-card>
+   </div>
+    <ion-infinite-scroll threshold="1000px" (ionInfinite)="loadOrders($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading Orders..."> 
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+  </ion-content>
