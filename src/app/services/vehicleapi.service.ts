@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class VehicleapiService {
 
   vinSearch = environment.site_car;
-  listVehicles = environment.site_url + environment.get_list_vehicles;
+  listVehicles = environment.get_list_vehicles;
 
   constructor(private router: Router,
               public http: HttpClient) { }

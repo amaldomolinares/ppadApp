@@ -4,10 +4,10 @@
 
 export const environment = {
     production: false,
-    site_url :  'http://localhost/',
-    jwt_url: 'Oauth2Master/users/login/login/',
+    site_url :  'http://localhost',
+    jwt_url: '/wp-json/jwt-auth/v1/token',
     site_car: 'https://vindecoder.p.rapidapi.com/decode_vin?vin=',
-    get_list_vehicles: '',
+    get_list_vehicles: 'http://localhost:3000/vehicles',
     get_list_orders: '/api/users',
     site_get_list_orders: 'https://reqres.in',
 

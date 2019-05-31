@@ -32,15 +32,14 @@ export class AuthenticationService {
       }
   }
 
-  login(Email, Password) {
-    const data = JSON.stringify({
-      Email: Email,
-      Password: Password
-    });
-    console.log(data);
+  login(username, password) {
+    const data = {
+      username,
+      password
+    };
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
-    return this.http.post(this.jwt, {data}, { headers });
+    return this.http.post(this.jwt, data, { headers });
    }
 
 

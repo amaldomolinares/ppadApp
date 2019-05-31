@@ -23,7 +23,7 @@ const routes: Routes = [
       loadChildren: './pages/vehicles/vehicles.module#VehiclesPageModule'
     },
     {
-      path: 'details-vehicle',
+      path: 'details-vehicle/:vinNumber',
       loadChildren: './pages/vehicle/details-vehicle/details-vehicle.module#DetailsVehiclePageModule'
     },
   {

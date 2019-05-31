@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { VehicleapiService } from 'src/app/services/vehicleapi.service';
 
 @Component({
   selector: 'app-details-vehicle',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsVehiclePage implements OnInit {
 
-  constructor() { }
+  vinNumber: any;
+
+  constructor(private vehiclesProvider: VehicleapiService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.vinNumber = this.route.snapshot.paramMap.get('vinNumber');
+    console.log(this.vinNumber);
   }
 
 }
