@@ -4,13 +4,22 @@
 
 export const environment = {
     production: false,
-    site_url :  'http://localhost',
-    jwt_url: '/wp-json/jwt-auth/v1/token',
-    site_car: 'https://vindecoder.p.rapidapi.com/decode_vin?vin=',
-    get_list_vehicles: 'http://localhost:3000/vehicles',
-    get_list_orders: '/api/users',
-    site_get_list_orders: 'https://reqres.in',
+    // ulr server
+    site_url :  'http://192.168.1.6/',
 
+    // endponits login
+    jwt_url: 'PPACD_04/users/ppacd/login/',
+
+    // endpoints vehicles
+    site_car: 'https://vindecoder.p.rapidapi.com/decode_vin?vin=',
+    get_list_vehicles: 'PPACD_04/Api_V/Vehicle/list',
+    get_vehicle_by_vinNumber: 'PPACD_04/Api_V/Vehicle/listbyid',
+    get_Vehicle_From_Api: 'PPACD_04/Api_V/Vehicle/listbyid',
+
+    // endpoints order
+    get_list_orders: '/api/users/',
+    site_get_list_orders: 'https://reqres.in',
+    post_add_new_order: '/PPACD_04/Api_O/Order/create',
 };
 
 /*

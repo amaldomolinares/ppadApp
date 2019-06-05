@@ -10,6 +10,7 @@ import { VehicleapiService } from 'src/app/services/vehicleapi.service';
 export class DetailsVehiclePage implements OnInit {
 
   vinNumber: any;
+  vehicle: any[] = [];
 
   constructor(private vehiclesProvider: VehicleapiService,
               private router: Router,
@@ -17,7 +18,16 @@ export class DetailsVehiclePage implements OnInit {
 
   ngOnInit() {
     this.vinNumber = this.route.snapshot.paramMap.get('vinNumber');
-    console.log(this.vinNumber);
+    this.getVehicleByVinNumber();
   }
+
+  getVehicleByVinNumber() {
+     this.vehiclesProvider.getVehicle(this.vinNumber).subscribe((vehicle: any) => {
+       this.vehicle = vehicle;
+       return (this.vehicle);
+    });
+  }
+
+
 
 }

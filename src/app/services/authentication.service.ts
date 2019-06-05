@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
- 
+
 const token = localStorage.getItem('TOKEN_KEY');
 
 @Injectable({
@@ -32,13 +32,14 @@ export class AuthenticationService {
       }
   }
 
-  login(username, password) {
+  login(Email, Password) {
     const data = {
-      username,
-      password
+      Email,
+      Password
     };
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
+    headers.set('X-API-KEY', 'PPACD@123');
     return this.http.post(this.jwt, data, { headers });
    }
 

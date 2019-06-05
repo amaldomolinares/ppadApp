@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 
 export class LoginPage implements OnInit {
 
-  username = '';
-  password = '';
+  Email = '';
+  Password = '';
 
   constructor(private authService: AuthenticationService,
               private router: Router) {
@@ -28,9 +28,9 @@ export class LoginPage implements OnInit {
 
   login() {
 
-      this.authService.login(this.username, this.password).subscribe((data: any) => {
-        localStorage.setItem('TOKEN_KEY', JSON.stringify(data.token));
-        console.log(localStorage.getItem('TOKEN_KEY'));
+      this.authService.login(this.Email, this.Password).subscribe((data: any) => {
+        localStorage.setItem('TOKEN_KEY', JSON.stringify(data.data));
+        console.log(data.data);
         if (localStorage.getItem('TOKEN_KEY') !== 'null') {
           this.router.navigate(['/menu']);
         }

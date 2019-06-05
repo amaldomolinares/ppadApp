@@ -8,47 +8,75 @@
 </ion-header>
 
 <ion-content>
-    <div padding>
-        <ion-label position="floating">Title</ion-label>
-      <ion-input type="text"></ion-input>
-    </div>
 
     <div padding>
-        <ion-item >
-          <ion-icon name="search" class="icon-search" (click)="vehicleSearch()"></ion-icon>
-          <ion-input type="text" placeholder="Vin Number" [(ngModel)]="vinNumber" class="input-search"></ion-input>
+        <ion-item  >
+            <ion-icon name="search" class="icon-search" (click)="getVehicleByApi()"></ion-icon>
+            <ion-input type="text" placeholder="Vin Number" [(ngModel)]="vinNumber" class="input-search"></ion-input>
         </ion-item>
     </div>
 
-    <ion-grid padding>
-        <ion-row>
-          <ion-col>
-              <ion-input disabled="true" value="Make" class="text-disable"></ion-input>
-          </ion-col>
-          <ion-col>
-              <ion-input disabled="true" value="Model" class="text-disable"></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <ion-input disabled="true" value="Model Year" class="text-disable"></ion-input>
-            </ion-col>
-            <ion-col>
-                <ion-input disabled="true" value="Color" class="text-disable"></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col>
-                  <ion-input disabled="true" value="Engine" class="text-disable"></ion-input>
-              </ion-col>
-              <ion-col>
-                  <ion-input disabled="true" value="Transmision" class="text-disable"></ion-input>
-              </ion-col>
-          </ion-row>
-          <ion-row padding-top>
-              <ion-col>
-                  <ion-button expand="block">SAVE</ion-button>
-              </ion-col>
-          </ion-row>
-    </ion-grid>
+    <div *ngIf="vehicle.Data">
+            <ion-grid padding>
+                <ion-row>
+                  <ion-col class="border-col">
+                      <ion-input disabled="true" value="{{vehicle?.Data.make}}" placeholder="Make" class="text-disable"></ion-input>
+                  </ion-col>
+                  <ion-col>
+                      <ion-input disabled="true" placeholder="Model" value="{{vehicle?.Data.model}}" class="text-disable"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-input disabled="true" placeholder="Model Year" value="{{vehicle?.Data.modelYear}}" class="text-disable"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                        <ion-input disabled="true" placeholder="Color" value="{{vehicle?.Data.color}}" class="text-disable"></ion-input>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col>
+                          <ion-input disabled="true" placeholder="Engine" value="{{vehicle?.Data.engine}}" class="text-disable"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                          <ion-input disabled="true" placeholder="Transmission" value="{{vehicle?.Data.transmission}}" class="text-disable"></ion-input>
+                      </ion-col>
+                  </ion-row>
+                  <ion-row padding-top>
+                        <ion-col>
+                            <ion-button expand="block">SAVE</ion-button>
+                        </ion-col>
+                    </ion-row>
+            </ion-grid>
+            </div>
+      
+            <div *ngIf="!vehicle.Data">
+                <ion-grid padding>
+                    <ion-row>
+                      <ion-col>
+                          <ion-input disabled="true" value="Make" class="text-disable"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                          <ion-input disabled="true" value="Model" class="text-disable"></ion-input>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-input disabled="true" value="Model Year" class="text-disable"></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-input disabled="true" value="Color" class="text-disable"></ion-input>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                          <ion-col>
+                              <ion-input disabled="true" value="Engine" class="text-disable"></ion-input>
+                          </ion-col>
+                          <ion-col>
+                              <ion-input disabled="true" value="Transmission" class="text-disable"></ion-input>
+                          </ion-col>
+                      </ion-row>    
+                               
+                </ion-grid>
+            </div>
 </ion-content>

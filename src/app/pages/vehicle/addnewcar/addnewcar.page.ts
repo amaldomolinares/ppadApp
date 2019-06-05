@@ -9,18 +9,20 @@ import { VehicleapiService } from '../../../services/vehicleapi.service';
 })
 export class AddnewcarPage implements OnInit {
 
-  vinNumber = '';
+  vinNumber: any;
+  vehicle: any[] = [];
 
-  constructor(private vehicleService: VehicleapiService) { }
+  constructor(private vehiclesProvider: VehicleapiService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
-  vehicleSearch() {
-
-    this.vehicleService.vehicleSearch(this.vinNumber).subscribe((data: any) => {
-      console.log(data);
-    });
-  }
+  getVehicleByApi() {
+    this.vehiclesProvider.getVehicleApi(this.vinNumber).subscribe((vehicle: any) => {
+      this.vehicle = vehicle;
+      return (this.vehicle);
+   });
+ }
 
 }

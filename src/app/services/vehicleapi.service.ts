@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class VehicleapiService {
 
   vinSearch = environment.site_car;
-  listVehicles = environment.get_list_vehicles;
+  listVehicles = environment.site_url + environment.get_list_vehicles;
+  vehicleByVin = environment.site_url + environment.get_vehicle_by_vinNumber;
+  vehicleFromApi = environment.site_url + environment.get_Vehicle_From_Api;
 
   constructor(private router: Router,
               public http: HttpClient) { }
@@ -25,5 +27,13 @@ export class VehicleapiService {
 
   getVehiclesList() {
     return this.http.get(this.listVehicles);
+  }
+
+  getVehicle(vinNumber) {
+    return this.http.get(this.vehicleByVin + '/' + vinNumber);
+  }
+
+  getVehicleApi(vinNumber) {
+    return this.http.get(this.vehicleFromApi + '/' + vinNumber);
   }
 }

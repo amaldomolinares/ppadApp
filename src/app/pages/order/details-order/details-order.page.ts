@@ -10,6 +10,7 @@ import { OrderapiService } from 'src/app/services/orderapi.service';
 export class DetailsOrderPage implements OnInit {
 
 order: any;
+orderData: any[] = [];
 
   constructor(private orderProvider: OrderapiService,
               private router: Router,
@@ -17,7 +18,14 @@ order: any;
 
   ngOnInit() {
    this.order = this.route.snapshot.paramMap.get('id');
-   console.log(this.order)
+   this.getOrderById();
   }
+
+  getOrderById() {
+    this.orderProvider.getOrderId(this.order).subscribe((data: any) => {
+      this.orderData = data;
+      return (this.orderData);
+   });
+ }
 
 }

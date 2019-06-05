@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { VehicleapiService } from 'src/app/services/vehicleapi.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { OrderapiService } from 'src/app/services/orderapi.service';
 
 @Component({
   selector: 'app-new-order',
@@ -7,9 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewOrderPage implements OnInit {
 
-  constructor() { }
+  vinNumber: any;
+  vehicle: any[] = [];
+  Title: string;
+  Status = 'pending';
+  Date: Date;
+  dateEnd: Date;
+  
+
+  customOptions: any = {
+    header: 'Select Order Status'
+  };
+  constructor(private vehiclesProvider: VehicleapiService,
+              private orderProvider: OrderapiService,
+              private router: Router) { }
 
   ngOnInit() {
   }
+
+  getVehicleByVinNumber() {
+    this.vehiclesProvider.getVehicle(this.vinNumber).subscribe((vehicle: any) => {
+      this.vehicle = vehicle;
+      return (this.vehicle);
+   });
+ }
+
+ saveNewOrder() {
+   console.log(this.vinNumber, this.Title, this.Status, this.Date);
+   this.orderProvider.postNewOrder(this.vinNumber, this.Title, this.Status, this.Date).subscribe((data: any) => {
+    if (data.OrderId !== 'null') {
+      this.router.navigate(['/edit-order', data.vinNumber]);
+    }
+  });
+ }
+
+
 
 }

@@ -32,12 +32,14 @@ const routes: Routes = [
   },
   {
     path: 'details-order/:id',
-    loadChildren: './pages/order/details-order/details-order.module#DetailsOrderPageModule' 
+    loadChildren: './pages/order/details-order/details-order.module#DetailsOrderPageModule'
   },
   {
     path: 'new-order',
-    loadChildren: './pages/order/new-order/new-order.module#NewOrderPageModule' 
-  }
+    loadChildren: './pages/order/new-order/new-order.module#NewOrderPageModule'
+  },
+  { path: 'edit-order',
+    loadChildren: './pages/order/edit-order/edit-order.module#EditOrderPageModule' }
 ];
 
 @NgModule({

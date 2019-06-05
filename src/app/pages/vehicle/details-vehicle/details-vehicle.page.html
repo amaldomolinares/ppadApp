@@ -8,5 +8,40 @@
   </ion-header>
 
 <ion-content>
+  
+
+        <div *ngIf="vehicle.Data">
+        <ion-card >
+            <div class="card-overlay" >
+     
+          <div class="card-title">Vin Number: {{vehicle.Data.vinNumber}}</div>
+          <div class="card-subtitle">Make: {{vehicle.Data.make}}</div>
+          <div class="card-subtitle">Model: {{vehicle.Data.model}}</div>
+          <div class="card-subtitle">Model Year: {{vehicle.Data.modelYear}}</div>
+          <div class="card-subtitle">Color: {{vehicle.Data.color}}</div>
+          <div class="card-subtitle">Fuel Type: {{vehicle.Data.fuelType}}</div>
+          <div class="card-subtitle">Engine: {{vehicle.Data.engine}}</div>
+          <div class="card-subtitle">Transmission: {{vehicle.Data.transmission}}</div>
+          <div class="card-subtitle">Trim: {{vehicle.Data.trim}}</div>
+           </div> 
+        </ion-card>
+      </div>
+      <div *ngIf="!vehicle.Data">
+          <ion-card >
+              <div class="card-overlay" >
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+              </div>
+          </ion-card>    
+
+      </div>
+        
 
 </ion-content>

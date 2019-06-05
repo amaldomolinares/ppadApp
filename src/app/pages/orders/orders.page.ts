@@ -29,7 +29,7 @@ export class OrdersPage {
     }, 500);
   }
 
-  addNewOrder(){
+  addNewOrder() {
     this.router.navigate(['/new-order']);
 }
 
