@@ -33,46 +33,7 @@
   </div>
   <div *ngIf="!vehicles?.Data">
       <div >
-          <ion-card  >
-              <div class="card-overlay" >
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-              </div>
-          </ion-card>
-          <ion-card  >
-              <div class="card-overlay" >
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-              </div>
-          </ion-card>
-          <ion-card  >
-              <div class="card-overlay" >
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-              </div>
-          </ion-card>
-          <ion-card  >
+          <ion-card  *ngFor="let number of [0,1,2,3,4,5,6,7,8,9,10]">
               <div class="card-overlay" >
                   <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
                   <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>

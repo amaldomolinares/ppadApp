@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
 })
 export class OrderapiService {
 
-  token = localStorage.getItem('TOKEN_KEY');
+  UserID = localStorage.getItem('UserID');
 
-  Orders = environment.site_get_list_orders + environment.get_list_orders;
+  Orders = environment.site_url + environment.get_list_orders;
+  OrderbyId = environment.site_url + environment.get_list_order_by_id;
   NewOrder = environment.site_url + environment.post_add_new_order;
+  UpdateOrder = environment.site_url + environment.Update_order_by_id;
 
   constructor(private router: Router,
               public http: HttpClient) { }
@@ -21,19 +23,30 @@ export class OrderapiService {
   }
 
   getOrderId(order) {
-    return this.http.get(this.Orders + order);
+    return this.http.get(this.OrderbyId + '/' + order);
   }
 
-  postNewOrder(Title, Status, vinNumber, Date) {
+  postNewOrder( vinNumber, Title, Status, Date) {
     const data = {
+      vinNumber,
       Title,
       Status,
-      vinNumber,
-      Date
+      Date,
+      UserID : JSON.parse(this.UserID)
     };
+    console.log(data);
     const headers = new HttpHeaders();
-    headers.set('Token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJTdGF0dXMiOiJCIiwiVXNlcklEIjoibWppbWVuZXoifQ.ZMVPqQtc2PsCNlhP3XTkKlVBbqX1HHMhVzJ6Mi69b40');
     headers.set('Content-Type', 'application/json');
     return this.http.post(this.NewOrder, data, { headers });
+   }
+
+   updateOrder(Status, OrderID) {
+     const data = {
+       Status,
+       UserID : JSON.parse(this.UserID)
+     };
+     const headers = new HttpHeaders();
+     headers.set('Content-Type', 'application/json');
+     return this.http.post(this.UpdateOrder + '/' + OrderID, data, { headers });
    }
 }

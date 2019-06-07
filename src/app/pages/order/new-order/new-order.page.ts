@@ -14,9 +14,9 @@ export class NewOrderPage implements OnInit {
   vehicle: any[] = [];
   Title: string;
   Status = 'pending';
-  Date: Date;
+  Date: any;
   dateEnd: Date;
-  
+
 
   customOptions: any = {
     header: 'Select Order Status'
@@ -36,10 +36,9 @@ export class NewOrderPage implements OnInit {
  }
 
  saveNewOrder() {
-   console.log(this.vinNumber, this.Title, this.Status, this.Date);
    this.orderProvider.postNewOrder(this.vinNumber, this.Title, this.Status, this.Date).subscribe((data: any) => {
-    if (data.OrderId !== 'null') {
-      this.router.navigate(['/edit-order', data.vinNumber]);
+    if (data.OrderID !== 'null') {
+      this.router.navigate(['/edit-order']);
     }
   });
  }

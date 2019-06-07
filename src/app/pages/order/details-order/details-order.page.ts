@@ -9,7 +9,7 @@ import { OrderapiService } from 'src/app/services/orderapi.service';
 })
 export class DetailsOrderPage implements OnInit {
 
-order: any;
+order: string;
 orderData: any[] = [];
 
   constructor(private orderProvider: OrderapiService,
@@ -18,14 +18,24 @@ orderData: any[] = [];
 
   ngOnInit() {
    this.order = this.route.snapshot.paramMap.get('id');
+   console.log(this.order);
+   this.getOrderById();
+  }
+
+  ionViewWillEnter() {
+   this.order = this.route.snapshot.paramMap.get('id');
    this.getOrderById();
   }
 
   getOrderById() {
     this.orderProvider.getOrderId(this.order).subscribe((data: any) => {
       this.orderData = data;
+      console.log(this.orderData);
       return (this.orderData);
    });
  }
 
+ EditOrder() {
+  this.router.navigate(['/edit-order/' + this.order]);
+ }
 }

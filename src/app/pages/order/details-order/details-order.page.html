@@ -3,15 +3,137 @@
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
           </ion-buttons>
-      <ion-title>Order {{order}}</ion-title>
+      <ion-title>Order {{orderData.OrderInfo?.OrderID}}</ion-title>
+      <ion-buttons slot="end" class="icon-end" >
+          <ion-button (click)="EditOrder()">
+            <ion-icon slot="icon-only" name="hammer"></ion-icon>
+          </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-<ion-content>
+<ion-content padding *ngIf="orderData.OrderInfo">
+  <ion-grid>
+    <ion-row>
+        <ion-col [size]='9'>
+          <h3 class="ion-text-capitalize">{{orderData.OrderInfo?.make}}  {{orderData.OrderInfo?.model}}</h3>
+          <h4>Status: {{orderData.OrderInfo?.Status}}</h4>
+        </ion-col>
+        <ion-col [size]='3'>          
+        </ion-col>
+    </ion-row>
+    <h2>Car Data</h2>
+    <p padding-top>Vin Number: {{orderData.OrderInfo?.vinNumber}} </p>
+    <ion-row>
+      <ion-col>
+        <p>Make: {{orderData.OrderInfo?.make}}</p>
+        <p>Model: {{orderData.OrderInfo?.model}}</p>
+        <p>Model Year: {{orderData.OrderInfo?.modelYear}}</p>
+        <p>Color: {{orderData.OrderInfo?.color}}</p>
+      </ion-col>
+      <ion-col>
+        <p>Fuel Type: {{orderData.OrderInfo?.fuelType}}</p>
+        <p>Transmission: {{orderData.OrderInfo?.transmission}}</p>
+        <p>Engine: {{orderData.OrderInfo?.engine}}</p>
+        <p>Trim: {{orderData.OrderInfo?.trim}}</p>
+      </ion-col>
+    </ion-row>
+    <h2>Task</h2>
+    <ion-row>
+      <ion-col [size]="1">
+        <p text-center>#</p>
+        <div *ngFor="let task of orderData?.TaskList; index as i">
+            <ion-badge color="primary" [routerLink]="'/details-task/' + task.TaskID">{{i+1}}</ion-badge>
+        </div>
+      </ion-col>
+      <ion-col [size]="3">
+        <p text-center>Title</p>
+        <div *ngFor="let task of orderData?.TaskList">
+            <p class="text-task" >{{task.Name}}</p>
+        </div>
+      </ion-col>
+      <ion-col [size]="3">
+        <p text-center>Start</p>
+        <div *ngFor="let task of orderData?.TaskList">
+            <p class="text-task">{{task.StartDate}}</p>
+        </div>
+      </ion-col>
+      <ion-col [size]="2">
+        <p text-center>Dep</p>
+        <div *ngFor="let task of orderData?.TaskList">
+            <p class="text-task">{{task.DepartmentID}}</p>
+        </div>
+      </ion-col>
+      <ion-col [size]="3">
+        <p text-center>Status</p>
+        <div *ngFor="let task of orderData?.TaskList">
+            <p class="text-task" [routerLink]="'/details-task/' + task.TaskID">{{task.Status}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-   
-        <h2>{{ order.first_name }}</h2>
-        <p>{{ order.email }}</p>
-   
+</ion-content>
 
+<ion-content padding *ngIf="!orderData.OrderInfo">
+    <ion-grid>
+      <ion-row>
+          <ion-col [size]='9'>
+            <h3 class="ion-text-capitalize"><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h3>
+            <h4><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></h4>
+          </ion-col>
+          <ion-col [size]='3'>          
+          </ion-col>
+      </ion-row>
+      <h2>Car Data</h2>
+      <p padding-top><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+      <ion-row>
+        <ion-col>
+          <p><ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></p>
+          <p><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></p>
+          <p><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></p>
+          <p><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></p>
+        </ion-col>
+        <ion-col>
+          <p><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+          <p><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></p>
+          <p><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+          <p><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></p>
+        </ion-col>
+      </ion-row>
+      <h2>Task</h2>
+      <ion-row>
+        <ion-col [size]="1">
+          <p text-center>#</p>
+          <div >
+              <ion-badge color="primary"><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></ion-badge>
+          </div>
+        </ion-col>
+        <ion-col [size]="3">
+          <p text-center>Title</p>
+          <div >
+              <p class="text-task"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+          </div>
+        </ion-col>
+        <ion-col [size]="3">
+          <p text-center>Start</p>
+          <div >
+              <p class="text-task"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+          </div>
+        </ion-col>
+        <ion-col [size]="2">
+          <p text-center>Dep</p>
+          <div>
+              <p class="text-task"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p>
+          </div>
+        </ion-col>
+        <ion-col [size]="3">
+          <p text-center>Status</p>
+          <div>
+              <p class="text-task"><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
 </ion-content>

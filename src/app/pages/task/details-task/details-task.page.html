@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>Task: {{task?.TaskInfo.OrderSq}}</ion-title>
+    <ion-buttons slot="end" class="icon-end" >
+        <ion-button (click)="EditTask()">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="task">
+
+  <h2>Task </h2>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-label>No </ion-label><ion-badge color="primary">{{task?.TaskInfo.OrderSq}}</ion-badge>
+    </ion-col>
+    <ion-col>
+      <ion-label>Title {{task?.TaskInfo.Name}} </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-label>Start Date: {{task?.TaskInfo.StartDate}} </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>Dep: {{task?.TaskInfo.DepartmentID}} </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-badge color="primary">{{task?.TaskInfo.Status}}</ion-badge>
+    </ion-col>
+  </ion-row>
+  <ion-row> 
+    <ion-label> 
+      Summary:
+    </ion-label>
+  </ion-row>
+  <ion-row padding-top margin-bottom>
+    <ion-label> 
+      {{task?.TaskInfo.Summary}} 
+    </ion-label>
+  </ion-row>
+  
+    <div *ngFor="let note of task?.Notes" padding-top>
+        <ion-row>
+          <ion-col [size]='6'><ion-label>{{note.UserID}}</ion-label></ion-col>
+          <ion-col [size]='6'><ion-label>{{note.Date}}</ion-label></ion-col>
+        </ion-row>
+    
+    <ion-card color="primary">
+      <ion-row padding >
+          {{note.Message}}
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-grid>
+  
+</ion-content>
+
+<ion-content padding *ngIf="!task">
+
+    <h2>Task </h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label>No </ion-label><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+      </ion-col>
+      <ion-col>
+        <ion-label>Title <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Start Date: <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label>Dep: <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-badge color="primary"><ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></ion-badge>
+      </ion-col>
+    </ion-row>
+    <ion-row> 
+      <ion-label> 
+        Summary:
+      </ion-label>
+    </ion-row>
+    <ion-row padding-top margin-bottom>
+      
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text> 
+          <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>  
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text> 
+      
+    </ion-row>
+    
+      <div  padding-top>
+          <ion-row>
+            <ion-col [size]='6'><ion-label><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text> </ion-label></ion-col>
+            <ion-col [size]='6'><ion-label><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text> </ion-label></ion-col>
+          </ion-row>
+      
+      <ion-card color="primary">
+        <ion-row padding >
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>  
+        </ion-row>
+      </ion-card>
+    </div>
+  </ion-grid>
+  </ion-content>

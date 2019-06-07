@@ -13,17 +13,30 @@
 </ion-header>
 
   <ion-content class="card-background-page" >
-   <div class="card-div" *ngFor="let order of orders?.data">
-    <ion-card  [routerLink]="'/details-order/' + order.id" routerDirection="forward">
-        
-      <img [src]="order.avatar"/>
+  <div *ngIf="orders?.Data">
+   <div class="card-div" *ngFor="let order of orders?.Data">
+    <ion-card  [routerLink]="'/details-order/' + order.OrderID" routerDirection="forward">
+     
         <div class="card-overlay" >
-      <div class="card-title">{{order.first_name}}</div>
-      <div class="card-subtitle">{{order.last_name}}</div>
-       </div> 
+      <h1 class="">{{order.make}} - {{order.model}}</h1>
+      <p class="">{{order.vinNumber}}</p>
+      <p class="">Year: {{order.vinNumber}}</p>
+      <p class="">Color: {{order.color}}</p>
+      <p class="">Order: {{order.OrderID}}</p>
+          </div>
     </ion-card>
    </div>
-    <ion-infinite-scroll threshold="1000px" (ionInfinite)="loadOrders($event)">
+  </div>
+  <div *ngIf="!orders?.Data">
+    <ion-card *ngFor="let number of [0,1,2,3,4,5,6,7,8,9,10]">
+      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+    </ion-card> 
+  </div> 
+    <ion-infinite-scroll threshold="250px" (ionInfinite)="loadOrders($event)">
       <ion-infinite-scroll-content
         loadingSpinner="bubbles"
         loadingText="Loading Orders..."> 

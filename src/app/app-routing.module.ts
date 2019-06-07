@@ -38,8 +38,22 @@ const routes: Routes = [
     path: 'new-order',
     loadChildren: './pages/order/new-order/new-order.module#NewOrderPageModule'
   },
-  { path: 'edit-order',
-    loadChildren: './pages/order/edit-order/edit-order.module#EditOrderPageModule' }
+  {
+    path: 'edit-order/:id',
+    loadChildren: './pages/order/edit-order/edit-order.module#EditOrderPageModule'
+  },
+  {
+    path: 'add-task',
+    loadChildren: './pages/task/add-task/add-task.module#AddTaskPageModule'
+  },
+  {
+    path: 'edit-task/:TaskID',
+    loadChildren: './pages/task/edit-task/edit-task.module#EditTaskPageModule'
+  },
+  {
+    path: 'details-task/:TaskID',
+    loadChildren: './pages/task/details-task/details-task.module#DetailsTaskPageModule'
+  }
 ];
 
 @NgModule({
