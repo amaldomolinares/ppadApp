@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="success">
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
           </ion-buttons>
@@ -16,7 +16,7 @@
   <ion-grid>
     <ion-row>
         <ion-col [size]='9'>
-          <h3 class="ion-text-capitalize">{{orderData.OrderInfo?.make}}  {{orderData.OrderInfo?.model}}</h3>
+          <h2 class="ion-text-capitalize">{{orderData.OrderInfo?.make}}  {{orderData.OrderInfo?.model}}</h2>
           <h4>Status: {{orderData.OrderInfo?.Status}}</h4>
         </ion-col>
         <ion-col [size]='3'>          
@@ -39,35 +39,47 @@
       </ion-col>
     </ion-row>
     <h2>Task</h2>
-    <ion-row>
+    <ion-row >
+        <ion-col [size]="1">
+          <p text-center>#</p>
+        </ion-col>
+        <ion-col [size]="3">
+          <p text-center>Title</p>
+        </ion-col>
+        <ion-col [size]="3">
+          <p text-center>Start</p>
+        </ion-col>
+        <ion-col [size]="2">
+          <p text-center>Dep</p>
+        </ion-col>
+        <ion-col [size]="3">
+          <p text-center>Status</p>
+        </ion-col>
+      </ion-row>
+    <ion-row *ngFor="let task of orderData?.TaskList; index as i" class="align-row" [routerLink]="'/details-task/' + task.TaskID" padding-top padding-bottom margin-top>
       <ion-col [size]="1">
-        <p text-center>#</p>
-        <div *ngFor="let task of orderData?.TaskList; index as i">
-            <ion-badge color="primary" [routerLink]="'/details-task/' + task.TaskID">{{i+1}}</ion-badge>
+        <div >
+            <ion-badge color="success" class="num-task">{{i+1}}</ion-badge>
         </div>
       </ion-col>
       <ion-col [size]="3">
-        <p text-center>Title</p>
-        <div *ngFor="let task of orderData?.TaskList">
+        <div >
             <p class="text-task" >{{task.Name}}</p>
         </div>
       </ion-col>
       <ion-col [size]="3">
-        <p text-center>Start</p>
-        <div *ngFor="let task of orderData?.TaskList">
+        <div >
             <p class="text-task">{{task.StartDate}}</p>
         </div>
       </ion-col>
       <ion-col [size]="2">
-        <p text-center>Dep</p>
-        <div *ngFor="let task of orderData?.TaskList">
+        <div >
             <p class="text-task">{{task.DepartmentID}}</p>
         </div>
       </ion-col>
       <ion-col [size]="3">
-        <p text-center>Status</p>
-        <div *ngFor="let task of orderData?.TaskList">
-            <p class="text-task" [routerLink]="'/details-task/' + task.TaskID">{{task.Status}}</p>
+        <div >
+            <p class="text-task" >{{task.Status}}</p>
         </div>
       </ion-col>
     </ion-row>
