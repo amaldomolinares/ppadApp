@@ -1,5 +1,5 @@
-<ion-content padding>
-  <ion-grid>
+<ion-content margin-top>
+  <ion-grid padding>
       <ion-row class="ion-justify-content-center">
           <ion-col padding-top>
               <div>
@@ -13,11 +13,11 @@
             <div>
               <ion-list>
                 <ion-item padding-top>
-                    <ion-label position="floating">Email</ion-label>
+                    <ion-label position="floating"><ion-icon name="person" class="custom-icon-loguin"></ion-icon> Email</ion-label>
                   <ion-input type="text" [(ngModel)]="Email"></ion-input>
                 </ion-item>
                 <ion-item padding-top>
-                    <ion-label position="floating">Password</ion-label>
+                    <ion-label position="floating"><ion-icon name="lock" class="custom-icon-loguin"></ion-icon> Password</ion-label>
                     <ion-input type="password" [(ngModel)]="Password"></ion-input>
                   </ion-item>
               </ion-list>
@@ -36,3 +36,9 @@
       </ion-row>
   </ion-grid>        
 </ion-content>
+
+<ion-footer>
+  <div class="ion-text-center">
+  <ion-label class="text-copyrght">Copyright © Pinpraautodealer. All right reserved.</ion-label>
+  </div>
+</ion-footer>

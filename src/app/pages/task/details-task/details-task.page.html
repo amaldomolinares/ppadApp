@@ -58,6 +58,21 @@
       </ion-row>
     </ion-card>
   </div>
+  <div margin-top>
+    <ion-grid>
+      <ion-row>
+        Add Note
+      </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-textarea rows="6" cols="100%" placeholder="Enter any notes here..." [(ngModel)]="Message"></ion-textarea>
+        </ion-item>
+      </ion-row>
+      <ion-row margin-top text-center>
+        <ion-button shape="round" fill="outline" (click)="SaveNewNote()">Save Note</ion-button>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-grid>
   
 </ion-content>

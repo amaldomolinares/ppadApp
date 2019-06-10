@@ -14,15 +14,15 @@
 
   <ion-content class="card-background-page" >
   <div *ngIf="orders?.Data">
-   <div class="card-div" *ngFor="let order of orders?.Data">
+   <div class="card-div" *ngFor="let order of orders?.Data" padding-top>
     <ion-card  [routerLink]="'/details-order/' + order.OrderID" routerDirection="forward">
      
         <div class="card-overlay" >
-      <h1 class="">{{order.make}} - {{order.model}}</h1>
-      <p class="">{{order.vinNumber}}</p>
-      <p class="">Year: {{order.vinNumber}}</p>
-      <p class="">Color: {{order.color}}</p>
-      <p class="">Order: {{order.OrderID}}</p>
+      <h1 class="card-title">{{order.make}} - {{order.model}}</h1>
+      <p class="card-subtitle">{{order.vinNumber}}</p>
+      <p class="card-subtitle">Year: {{order.vinNumber}}</p>
+      <p class="card-subtitle">Color: {{order.color}}</p>
+      <p class="card-subtitle">Order: {{order.OrderID}}</p>
           </div>
     </ion-card>
    </div>

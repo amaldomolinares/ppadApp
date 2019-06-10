@@ -22,7 +22,7 @@ export class AddTaskPage implements OnInit {
               public toastController: ToastController, ) { }
 
   ngOnInit() {
-    this.OrderID = this.navParams.get('orderID')
+    this.OrderID = this.navParams.get('orderID');
   }
 
   saveNewTask() {

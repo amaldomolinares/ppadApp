@@ -12,7 +12,7 @@ const token = localStorage.getItem('TOKEN_KEY');
 })
 export class AuthenticationService {
 
- jwt = environment.site_url + environment.jwt_url;
+ jwt = environment.site_url + environment.User_login;
 
   authenticationState = new BehaviorSubject(false);
 
