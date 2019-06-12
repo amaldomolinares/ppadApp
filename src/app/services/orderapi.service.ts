@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
+const UserID = localStorage.getItem('UserID');
+const OfficeID = localStorage.getItem('OfficeID');
+
 @Injectable({
   providedIn: 'root'
 })
 export class OrderapiService {
-
-  UserID = localStorage.getItem('UserID');
 
   Orders = environment.site_url + environment.get_list_orders;
   OrderbyId = environment.site_url + environment.get_list_order_by_id;
@@ -32,7 +33,8 @@ export class OrderapiService {
       Title,
       Status,
       Date,
-      UserID : JSON.parse(this.UserID)
+      UserID,
+      OfficeID
     };
     console.log(data);
     const headers = new HttpHeaders();
@@ -43,7 +45,7 @@ export class OrderapiService {
    updateOrder(Status, OrderID) {
      const data = {
        Status,
-       UserID : JSON.parse(this.UserID)
+       UserID
      };
      const headers = new HttpHeaders();
      headers.set('Content-Type', 'application/json');

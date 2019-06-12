@@ -31,12 +31,11 @@ export class LoginPage implements OnInit {
       this.authService.login(this.Email, this.Password).subscribe((data: any) => {
         localStorage.setItem('TOKEN_KEY', JSON.stringify(data.data));
         localStorage.setItem('UserID', (data.UserID));
+        localStorage.setItem('OfficeID', (data.OfficeID));
         console.log(localStorage.getItem('UserID'));
         if (localStorage.getItem('TOKEN_KEY') !== 'null') {
           this.router.navigate(['/menu']);
         }
       });
  }
-
-
 }

@@ -1,0 +1,75 @@
+.icon-end{
+    padding-right: 5px;
+}
+
+h2, h4, p {
+    color: white !important;
+    opacity: 1;
+}
+
+.align-row{
+    vertical-align: middle;
+    border: 2px solid #fff;
+    opacity: 1;
+    background-color: #cc6119;
+    border-radius: 20px;
+    
+}
+
+.text-order{
+    font-size: 12px !important;   
+}
+
+.card-background-page {
+
+    --background: linear-gradient(197deg, rgba(41,47,51,1) 0%, rgba(35,38,40,1) 45%, rgba(131,150,150,1) 100%) !important;
+
+    .card-div{
+  
+      
+      ion-card {
+        position: relative;
+        
+        height: 200px;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 10%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        z-index: 2;
+        opacity: 1;
+      }
+    
+      .card-subtitle {
+        font-size: 1.0em;
+        line-height: 24px !important;
+        position: relative;
+        top: 80%;
+        left: 10%;
+        width: 100%;
+        color: #fff;
+        z-index: 2;
+        opacity: 1;
+      }
+  
+      .card-overlay{
+        height: 96%;
+        width: 97%;
+        left: 1.5%;
+        top: 2%;
+        border-radius: 10px;
+        bottom: 0px;
+        opacity: 1;
+        background-color: rgba(204,97,25,1);
+        position: absolute;
+        z-index: 99;
+      }
+
+     
+    
+    }
+  }

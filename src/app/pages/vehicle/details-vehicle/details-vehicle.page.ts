@@ -24,6 +24,7 @@ export class DetailsVehiclePage implements OnInit {
   getVehicleByVinNumber() {
      this.vehiclesProvider.getVehicle(this.vinNumber).subscribe((vehicle: any) => {
        this.vehicle = vehicle;
+       console.log(this.vehicle);
        return (this.vehicle);
     });
   }

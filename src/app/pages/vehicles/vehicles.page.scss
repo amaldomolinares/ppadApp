@@ -1,3 +1,55 @@
 .icon-end{
     padding-right: 5px;
 }
+
+.card-background-page {
+
+    .card-div{
+  
+      
+      ion-card {
+        position: relative;
+        
+        height: 200px;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 10%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        z-index: 2;
+        opacity: 1;
+      }
+    
+      .card-subtitle {
+        font-size: 1.0em;
+        line-height: 24px !important;
+        position: relative;
+        top: 80%;
+        left: 10%;
+        width: 100%;
+        color: #fff;
+        z-index: 2;
+        opacity: 1;
+      }
+  
+      .card-overlay{
+        height: 96%;
+        width: 97%;
+        left: 1.5%;
+        top: 2%;
+        border-radius: 10px;
+        bottom: 0px;
+        opacity: 1;
+        background-color: rgba(204,97,25,1);
+        position: absolute;
+        z-index: 99;
+      }
+
+     
+    
+    }
+  }

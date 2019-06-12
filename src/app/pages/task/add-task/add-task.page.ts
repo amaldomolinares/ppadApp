@@ -42,4 +42,8 @@ export class AddTaskPage implements OnInit {
     toast.present();
     }
 
+    close() {
+      this.modalController.dismiss();
+    }
+
 }

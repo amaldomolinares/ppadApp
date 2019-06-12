@@ -37,6 +37,7 @@ export class AuthenticationService {
       Email,
       Password
     };
+    console.log(data);
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     headers.set('X-API-KEY', 'PPACD@123');
@@ -45,9 +46,7 @@ export class AuthenticationService {
 
 
   logout() {
-
     this.authenticationState.next(false);
-
   }
 
   isAuthenticated() {

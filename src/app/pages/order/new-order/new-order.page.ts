@@ -38,7 +38,7 @@ export class NewOrderPage implements OnInit {
  saveNewOrder() {
    this.orderProvider.postNewOrder(this.vinNumber, this.Title, this.Status, this.Date).subscribe((data: any) => {
     if (data.OrderID !== 'null') {
-      this.router.navigate(['/edit-order']);
+      this.router.navigate(['/edit-order/' + data.OrderID]);
     }
   });
  }

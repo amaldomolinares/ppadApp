@@ -31,7 +31,7 @@ export class AppComponent {
           this.router.navigate(['/menu']);
           console.log('prueba 1');
         } else {
-          this.router.navigate(['/login'], {replaceUrl: true});
+          this.router.navigate(['/login'], {replaceUrl: false});
           console.log('prueba 2');
         }
       });

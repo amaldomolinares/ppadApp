@@ -17,16 +17,26 @@
     <div class="card-div" *ngFor="let vehicle of vehicles?.Data">
     <ion-card  [routerLink]="'/details-vehicle/' + vehicle.vinNumber" routerDirection="forward">
         <div class="card-overlay" >
-
-      <div class="card-title">{{vehicle.vinNumber}}</div>
-      <div class="card-subtitle">{{vehicle.make}}</div>
-      <div class="card-subtitle">{{vehicle.model}}</div>
-      <div class="card-subtitle">{{vehicle.modelYear}}</div>
-      <div class="card-subtitle">{{vehicle.color}}</div>
-      <div class="card-subtitle">{{vehicle.fuelType}}</div>
-      <div class="card-subtitle">{{vehicle.engine}}</div>
-      <div class="card-subtitle">{{vehicle.transmission}}</div>
-      <div class="card-subtitle">{{vehicle.trim}}</div>
+          <ion-grid>
+            <ion-row text-center>
+                <div class="card-title">{{vehicle.vinNumber}}</div>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                  <div class="card-subtitle">Make: {{vehicle.make}}</div>
+                  <div class="card-subtitle">Model: {{vehicle.model}}</div>
+                  <div class="card-subtitle">Model year: {{vehicle.modelYear}}</div>
+                  <div class="card-subtitle">Color: {{vehicle.color}}</div>
+              </ion-col>
+              <ion-col>
+                  <div class="card-subtitle">Fuel Type: {{vehicle.fuelType}}</div>
+                  <div class="card-subtitle">Engine: {{vehicle.engine}}</div>
+                  <div class="card-subtitle">Transmission: {{vehicle.transmission}}</div>
+                  <div class="card-subtitle">trim: {{vehicle.trim}}</div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>          
+          
         </div> 
     </ion-card>
     </div>

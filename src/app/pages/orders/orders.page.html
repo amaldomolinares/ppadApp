@@ -16,7 +16,7 @@
   <div *ngIf="orders?.Data">
    <div class="card-div" *ngFor="let order of orders?.Data" padding-top>
     <ion-card  [routerLink]="'/details-order/' + order.OrderID" routerDirection="forward">
-     
+      <ion-ripple-effect></ion-ripple-effect>
         <div class="card-overlay" >
       <h1 class="card-title">{{order.make}} - {{order.model}}</h1>
       <p class="card-subtitle">{{order.vinNumber}}</p>

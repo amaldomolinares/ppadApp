@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="success">
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
           </ion-buttons>
@@ -7,25 +7,65 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content>
+<ion-content class="card-background-page">
   
 
-        <div *ngIf="vehicle.Data">
+      <div *ngIf="vehicle.Data" class="card-div">
         <ion-card >
             <div class="card-overlay" >
-     
-          <div class="card-title">Vin Number: {{vehicle.Data.vinNumber}}</div>
-          <div class="card-subtitle">Make: {{vehicle.Data.make}}</div>
-          <div class="card-subtitle">Model: {{vehicle.Data.model}}</div>
-          <div class="card-subtitle">Model Year: {{vehicle.Data.modelYear}}</div>
-          <div class="card-subtitle">Color: {{vehicle.Data.color}}</div>
-          <div class="card-subtitle">Fuel Type: {{vehicle.Data.fuelType}}</div>
-          <div class="card-subtitle">Engine: {{vehicle.Data.engine}}</div>
-          <div class="card-subtitle">Transmission: {{vehicle.Data.transmission}}</div>
-          <div class="card-subtitle">Trim: {{vehicle.Data.trim}}</div>
+
+                <ion-grid>
+                    <ion-row text-center>
+                        <div class="card-title">{{vehicle.Data.vinNumber}}</div>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col>
+                          <div class="card-subtitle">Make: {{vehicle.Data.make}}</div>
+                          <div class="card-subtitle">Model: {{vehicle.Data.model}}</div>
+                          <div class="card-subtitle">Model year: {{vehicle.Data.modelYear}}</div>
+                          <div class="card-subtitle">Color: {{vehicle.Data.color}}</div>
+                      </ion-col>
+                      <ion-col>
+                          <div class="card-subtitle">Fuel Type: {{vehicle.Data.fuelType}}</div>
+                          <div class="card-subtitle">Engine: {{vehicle.Data.engine}}</div>
+                          <div class="card-subtitle">Transmission: {{vehicle.Data.transmission}}</div>
+                          <div class="card-subtitle">trim: {{vehicle.Data.trim}}</div>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
            </div> 
         </ion-card>
+      
+        <ion-grid *ngIf="vehicle?.Orders"> 
+          <ion-row>
+              <ion-col [size]="2">
+                  <p text-center>Order ID</p>
+                </ion-col>
+                <ion-col [size]="5">
+                  <p text-center>Date Start</p>
+                </ion-col>
+                <ion-col [size]="5">
+                  <p text-center>Status</p>
+                </ion-col>
+          </ion-row>
+          <div *ngFor="let order of vehicle?.Orders">
+            <ion-row [routerLink]="'/details-order/' + order.OrderID" class="align-row" padding-top padding-bottom margin-top>
+                <ion-col [size]="2">
+                    <p text-center class="text-order">{{order.OrderID}}</p>
+                  </ion-col>
+                  <ion-col [size]="5">
+                    <p text-center class="text-order">{{order.Date}}</p>
+                  </ion-col>
+                  <ion-col [size]="5">
+                    <p text-center class="text-order">{{order.Status}}</p>
+                  </ion-col>
+            </ion-row>
+          </div>
+        </ion-grid>
+      
       </div>
+
+
       <div *ngIf="!vehicle.Data">
           <ion-card >
               <div class="card-overlay" >

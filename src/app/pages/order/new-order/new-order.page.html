@@ -1,5 +1,5 @@
   <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="success">
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
           </ion-buttons>
@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content  padding>
+<ion-content  padding >
   
       <ion-item>
         <ion-label position="floating">Title</ion-label>
@@ -17,7 +17,6 @@
         <ion-icon name="search" class="icon-search" (click)="getVehicleByVinNumber()"></ion-icon>
         <ion-input type="text" placeholder="Vin Number" [(ngModel)]="vinNumber" class="input-search"></ion-input>
       </ion-item>
-
       <div *ngIf="vehicle.Data">
       <ion-grid padding>
           <ion-row>
