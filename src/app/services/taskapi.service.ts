@@ -19,13 +19,17 @@ export class TaskapiService {
 
   constructor(public http: HttpClient, ) {}
 
-  postNewtask( OrderID, Name, Status, StartDate, Summary) {
+  postNewtask( VehicleID, EndDate,InvoiceDate,Name,StartDate,Status,Summary,SupplierID,TotalCost) {
     const data = {
-      OrderID,
+      VehicleID,
+      EndDate,
+      InvoiceDate,
       Name,
-      Status,
       StartDate,
+      Status,
       Summary,
+      SupplierID,
+      TotalCost,
     };
     console.log(data);
     const headers = new HttpHeaders();
@@ -37,11 +41,16 @@ export class TaskapiService {
      return this.http.get(this.GetTask + '/' + TaskID);
    }
 
-   updateTask(Name, Status, Summary, TaskID) {
+   updateTask(EndDate,InvoiceDate,Name,StartDate,Status,Summary,SupplierID,TotalCost,TaskID) {
           const data = {
+            EndDate,
+            InvoiceDate,
             Name,
+            StartDate,
             Status,
             Summary,
+            SupplierID,
+            TotalCost,
           };
           console.log(data);
           const headers = new HttpHeaders();

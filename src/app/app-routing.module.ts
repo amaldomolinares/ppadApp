@@ -23,7 +23,7 @@ const routes: Routes = [
       loadChildren: './pages/vehicles/vehicles.module#VehiclesPageModule'
     },
     {
-      path: 'details-vehicle/:vinNumber',
+      path: 'details-vehicle/:VehicleID',
       loadChildren: './pages/vehicle/details-vehicle/details-vehicle.module#DetailsVehiclePageModule'
     },
   {
@@ -53,6 +53,14 @@ const routes: Routes = [
   {
     path: 'details-task/:TaskID',
     loadChildren: './pages/task/details-task/details-task.module#DetailsTaskPageModule'
+  },
+  {
+    path: 'register',
+    loadChildren: './pages/register/register.module#RegisterPageModule'
+  },
+  {
+    path: 'edit-vehicle/:VehicleID',
+    loadChildren: './pages/vehicle/edit-vehicle/edit-vehicle.module#EditVehiclePageModule'
   }
 ];
 

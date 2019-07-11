@@ -30,7 +30,7 @@ export class AppComponent {
         if (state === true) {
           this.router.navigate(['/menu']);
           console.log('prueba 1');
-        } else {
+        } else if (state === false) {
           this.router.navigate(['/login'], {replaceUrl: false});
           console.log('prueba 2');
         }

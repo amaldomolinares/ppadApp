@@ -1,9 +1,14 @@
-<ion-header>
+  <ion-header>
     <ion-toolbar color="success">
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
           </ion-buttons>
       <ion-title>Vin Number: {{vinNumber}}</ion-title>
+      <ion-buttons slot="end" class="icon-end" >
+          <ion-button (click)="EditVehicle()">
+            <ion-icon slot="icon-only" name="create"></ion-icon>
+          </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
@@ -11,12 +16,20 @@
   
 
       <div *ngIf="vehicle.Data" class="card-div">
-        <ion-card >
-            <div class="card-overlay" >
+        
+          <div class="class-title">
+              Car Description
+          </div>
 
+        <ion-card >
+            <div >                
                 <ion-grid>
-                    <ion-row text-center>
+                    <ion-row >
                         <div class="card-title">{{vehicle.Data.vinNumber}}</div>
+                        <ion-col>
+                        <div class="card-subtitle">Stock No: {{vehicle.Data.StockNumber}}</div>
+                        <div class="card-subtitle">Status: {{vehicle.Data.Status}}</div>
+                      </ion-col>
                     </ion-row>
                     <ion-row>
                       <ion-col>
@@ -35,53 +48,185 @@
                 </ion-grid>  
            </div> 
         </ion-card>
-      
-        <ion-grid *ngIf="vehicle?.Orders"> 
+
+        <div class="class-title">
+            Odometer Information
+        </div>
+        <ion-card >
+            <div >                
+                <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                          <ion-label class="label-text">Purchase Miles</ion-label>
+                          <div class="card-subtitle">{{vehicle.Data.PurchaseMiles}}</div>
+                      </ion-col>
+                      <ion-col>
+                          <ion-label class="label-text">Current Miles</ion-label>
+                          <div class="card-subtitle">{{vehicle.Data.CurrentMiles}}</div>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
+          </div> 
+        </ion-card>
+
+        <div class="class-title">
+            Vehicle Cost
+        </div>
+        <ion-card >
+            <div >                
+                <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                          <ion-label class="label-text">Purchase Date</ion-label>
+                          <div class="card-subtitle">{{vehicle.Data.PurchaseDate}}</div>
+                      </ion-col>
+                      <ion-col>
+                          <ion-label class="label-text">Original Cost</ion-label>
+                          <div class="card-subtitle">{{vehicle.Data.OriginalCost}}</div>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
+          </div> 
+        </ion-card>
+        
+        <div class="class-title">
+            Repairs
+        </div>
+        <ion-grid *ngIf="vehicle?.Repairs"> 
           <ion-row>
-              <ion-col [size]="2">
-                  <p text-center>Order ID</p>
+              <ion-col [size]="1">
+                  <p text-center>#</p>
                 </ion-col>
-                <ion-col [size]="5">
-                  <p text-center>Date Start</p>
+                <ion-col [size]="7">
+                  <p text-center>Repair Name</p>
                 </ion-col>
-                <ion-col [size]="5">
+                <ion-col [size]="4">
                   <p text-center>Status</p>
                 </ion-col>
           </ion-row>
-          <div *ngFor="let order of vehicle?.Orders">
-            <ion-row [routerLink]="'/details-order/' + order.OrderID" class="align-row" padding-top padding-bottom margin-top>
-                <ion-col [size]="2">
-                    <p text-center class="text-order">{{order.OrderID}}</p>
+          <div *ngFor="let repair of vehicle?.Repairs">
+            <ion-row [routerLink]="'/details-task/' + repair.TaskID" class="align-row" padding-top padding-bottom margin-top>
+                <ion-col [size]="1">
+                    <p text-center class="text-order">{{repair.OrderSq}}</p>
                   </ion-col>
-                  <ion-col [size]="5">
-                    <p text-center class="text-order">{{order.Date}}</p>
+                  <ion-col [size]="7">
+                    <p text-center class="text-order">{{repair.Name}}</p>
                   </ion-col>
-                  <ion-col [size]="5">
-                    <p text-center class="text-order">{{order.Status}}</p>
+                  <ion-col [size]="4">
+                    <p text-center class="text-order">{{repair.Status}}</p>
+                  </ion-col>
+            </ion-row>
+          </div>         
+        </ion-grid>
+        
+        <div margin>
+            <ion-button expand="block" (click)="AddTaskToVehicle()">ADD REAPAIR</ion-button>
+        </div>
+      </div>
+      <!-- template Skeleton - Shell-->
+      <div *ngIf="!vehicle.Data" class="card-div">
+        
+          <div class="class-title">
+              Car Description
+          </div>
+
+        <ion-card >
+            <div >                
+                <ion-grid>
+                    <ion-row >
+                        <div class="card-title"><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></div>
+                        <ion-col>
+                        <div class="card-subtitle">Stock No: <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></div>
+                        <div class="card-subtitle">Status: <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></div>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col>
+                          <div class="card-subtitle">Make: <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></div>
+                          <div class="card-subtitle">Model: <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></div>
+                          <div class="card-subtitle">Model year: <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></div>
+                          <div class="card-subtitle">Color: <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></div>
+                      </ion-col>
+                      <ion-col>
+                          <div class="card-subtitle">Fuel Type: <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></div>
+                          <div class="card-subtitle">Engine: <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></div>
+                          <div class="card-subtitle">Transmission: <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></div>
+                          <div class="card-subtitle">trim: <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></div>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
+           </div> 
+        </ion-card>
+
+        <div class="class-title">
+            Odometer Information
+        </div>
+        <ion-card >
+            <div >                
+                <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                          <ion-label class="label-text">Purchase Miles</ion-label>
+                          <div class="card-subtitle"><ion-skeleton-text animated style="width: 20%"></ion-skeleton-text></div>
+                      </ion-col>
+                      <ion-col>
+                          <ion-label class="label-text">Current Miles</ion-label>
+                          <div class="card-subtitle"><ion-skeleton-text animated style="width: 20%"></ion-skeleton-text></div>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
+          </div> 
+        </ion-card>
+
+        <div class="class-title">
+            Vehicle Cost
+        </div>
+        <ion-card >
+            <div >                
+                <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                          <ion-label class="label-text">Purchase Date</ion-label>
+                          <div class="card-subtitle"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></div>
+                      </ion-col>
+                      <ion-col>
+                          <ion-label class="label-text">Original Cost</ion-label>
+                          <div class="card-subtitle"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></div>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
+          </div> 
+        </ion-card>
+        
+        <div class="class-title">
+            Repairs
+        </div>
+        <ion-grid *ngIf="vehicle?.Repairs"> 
+          <ion-row>
+              <ion-col [size]="1">
+                  <p text-center>#</p>
+                </ion-col>
+                <ion-col [size]="7">
+                  <p text-center>Repair Name</p>
+                </ion-col>
+                <ion-col [size]="4">
+                  <p text-center>Status</p>
+                </ion-col>
+          </ion-row>
+          <div *ngFor="let repair of vehicle?.Repairs">
+            <ion-row [routerLink]="'/details-task/' + repair.TaskID" class="align-row" padding-top padding-bottom margin-top>
+                <ion-col [size]="1">
+                    <p text-center class="text-order"><ion-skeleton-text animated style="width: 10%"></ion-skeleton-text></p>
+                  </ion-col>
+                  <ion-col [size]="7">
+                    <p text-center class="text-order"><ion-skeleton-text animated style="width: 90%"></ion-skeleton-text></p>
+                  </ion-col>
+                  <ion-col [size]="4">
+                    <p text-center class="text-order"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
                   </ion-col>
             </ion-row>
           </div>
         </ion-grid>
       
       </div>
-
-
-      <div *ngIf="!vehicle.Data">
-          <ion-card >
-              <div class="card-overlay" >
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-              </div>
-          </ion-card>    
-
-      </div>
-        
-
 </ion-content>

@@ -1,0 +1,73 @@
+<ion-content padding class="login auth-page">
+
+  <div class="auth-content">
+
+    <div padding-horizontal text-center>
+        <div>
+            <ion-img src="../assets/imgs/logo_ppad.jpg"></ion-img>
+        </div> 
+        <h3 no-margin>
+          <ion-text color="light" class="fw700">
+            <ion-text color="success">Register</ion-text>
+          </ion-text>
+        </h3>
+    </div>
+  
+    <form [formGroup]="onRegisterForm" class="list-form">
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="mail" item-start></ion-icon>
+          Full Name
+        </ion-label>
+        <ion-input color="success" type="text" formControlName="fullName"></ion-input>
+      </ion-item> 
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('fullName').touched && onRegisterForm.get('fullName').hasError('required')">
+        <ion-text color="danger">
+          This field is required
+        </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="mail" item-start></ion-icon>
+          Email
+        </ion-label>
+        <ion-input color="success" type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('required')">
+        <ion-text color="danger">
+          This field is required
+        </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="lock" item-start></ion-icon>
+          Password
+        </ion-label>
+        <ion-input color="success" type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <p ion-text color="danger" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
+        <ion-text color="danger">
+          This field is required
+        </ion-text>
+      </p>
+    </form>
+
+    <div margin-top>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="signUp()" [disabled]="!onRegisterForm.valid"
+        tappable>
+        <ion-icon name="log-in"></ion-icon>
+        Sign Up
+    </ion-button>
+    </div>
+
+    <div text-center margin-top>
+      <span (click)="goToLogin()" tappable>
+        <ion-text color="success">
+          <strong>I have an account!</strong>
+        </ion-text>
+      </span>
+    </div>
+  </div>
+</ion-content>

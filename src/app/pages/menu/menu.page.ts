@@ -10,8 +10,8 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class MenuPage implements OnInit {
   pages = [
     {
-      title: 'Orders',
-      url: '/menu/orders'
+      title: 'Add Vehicles',
+      url: '/menu/addnewcar'
     },
     {
       title: 'Vehicles',

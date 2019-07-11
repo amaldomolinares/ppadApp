@@ -1,0 +1,61 @@
+.background-page {
+    --background: linear-gradient(175deg, rgba(255,255,255,1) 0%, rgba(240,240,240,1) 45%, rgba(216,216,216,1) 100%) !important;
+}
+
+.title-data {
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.date-data{
+    display: flex;
+    justify-content: center;
+    color: #cc6119;
+}
+
+.badge-data{
+    display: flex;
+    justify-content: center;
+    color: #FFF;
+    font-weight: 600;
+}
+
+.No-data{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 2px lightgrey;
+    margin-right: 10px;
+}
+
+.summary-data{
+    font-weight: 600;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.start-col{
+    justify-content: flex-start;
+    display: flex;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #cc6119;
+}
+.end-col{
+    justify-content: flex-end;
+    display: flex;
+    padding-right: 10px;
+    font-size: 12px;
+    color: #cc6119;
+}
+
+.textarea-note{
+    background-color: white;
+    border: 1px solid #fafafa;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 1px lightslategrey;
+}

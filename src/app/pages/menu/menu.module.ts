@@ -10,7 +10,7 @@ import { MenuPage } from './menu.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/menu/orders',
+    redirectTo: '/menu/vehicles',
     pathMatch: 'full'
   },
   {
@@ -18,13 +18,13 @@ const routes: Routes = [
     component: MenuPage,
     children: [
       {
-        path: 'orders',
-      loadChildren: '../orders/orders.module#OrdersPageModule'
+        path: 'addnewcar',
+        loadChildren: '../vehicle/addnewcar/addnewcar.module#AddnewcarPageModule'
       },
       {
         path: 'vehicles',
         loadChildren: '../vehicles/vehicles.module#VehiclesPageModule'
-      },
+      }
     ]
   }
 ];

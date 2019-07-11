@@ -9,13 +9,20 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./edit-task.page.scss'],
 })
 export class EditTaskPage implements OnInit {
-
+  
+  //get
   TaskID: any;
   task;
-  modalStatus;
+
+  //post
+  EndDate;
+  InvoiceDate;
   Name;
+  StartDate;
   Status;
   Summary;
+  SupplierID;
+  TotalCost;
 
   constructor(private route: ActivatedRoute,
               private taskProvider: TaskapiService,
@@ -35,13 +42,14 @@ export class EditTaskPage implements OnInit {
   getTaskByTaskID() {
     this.taskProvider.getTask(this.TaskID).subscribe((task: any) => {
       this.task = task;
-      this.modalStatus = task.TaskInfo.DepartmentID;
+      console.log(this.task);
       return (this.task);
     });
   }
 
-  UpdateTask() {
-    this.taskProvider.updateTask(this.Name, this.Status, this.Summary, this.TaskID).subscribe((data: any) => {
+  updateRepair() {
+    this.taskProvider.updateTask(this.EndDate, this.InvoiceDate, this.Name, this.StartDate,
+                                this.Status, this.Summary, this.SupplierID, this.TotalCost,this.TaskID).subscribe((data: any) => {
       if (data.status !== 'true') {
         this.presentToast();
         this.router.navigate(['/details-task/' + this.TaskID]);
@@ -51,7 +59,7 @@ export class EditTaskPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Task has update',
+      message: 'Repair has update',
       duration: 2000
     });
     toast.present();

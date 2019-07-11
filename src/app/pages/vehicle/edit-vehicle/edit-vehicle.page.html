@@ -1,0 +1,168 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
+      <ion-title>Vin Number: {{vinNumber}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="card-background-page">
+  
+
+      <div *ngIf="vehicle.Data" class="card-div">
+        
+          <div class="class-title">
+              Car Description
+          </div>
+
+        <ion-card >
+            <div >                
+                <ion-grid>
+                    <ion-row >
+                        <ion-label class="card-subtitle">
+                            Vin Number: 
+                        </ion-label>
+                        <div class="card-title">{{vehicle.Data.vinNumber}}</div>
+                    </ion-row >
+                    <ion-row >
+                      <ion-col>
+                        <div class="card-subtitle">
+                          <ion-label>
+                          Stock No: 
+                          </ion-label> 
+                        </div> 
+                          <ion-input class="edit-input" [(ngModel)]="StockNumber" placeholder="{{vehicle.Data.StockNumber}}"></ion-input>                       
+                        <div class="card-subtitle">
+                            <ion-label>
+                              Status: 
+                            </ion-label> 
+                        </div>
+                          <ion-input class="edit-input" [(ngModel)]="Status" placeholder="{{vehicle.Data.Status}}"></ion-input>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col>
+                          <div class="card-subtitle">
+                            <ion-label>
+                              Make:
+                            </ion-label>
+                          </div> 
+                          <ion-input class="edit-input" [(ngModel)]="make" placeholder="{{vehicle.Data.make}}" type="text" ></ion-input>
+                          <div class="card-subtitle">
+                            <ion-label>
+                              Model: 
+                            </ion-label>
+                          </div> 
+                          <ion-input class="edit-input" [(ngModel)]="model" placeholder="{{vehicle.Data.model}}" type="text"> </ion-input>
+                          <div class="card-subtitle">
+                            <ion-label>
+                              Model year: 
+                            </ion-label>
+                          </div>
+                          <ion-input class="edit-input" [(ngModel)]="modelYear" placeholder="{{vehicle.Data.modelYear}}" type="text"> </ion-input>
+                          <div class="card-subtitle">
+                            <ion-label>
+                              Color: 
+                            </ion-label>
+                          </div>
+                          <ion-input class="edit-input" [(ngModel)]="color" placeholder="{{vehicle.Data.color}}" type="text"> </ion-input>
+                      </ion-col>
+                      <ion-col>
+                          <div class="card-subtitle">
+                            <ion-label>
+                              Fuel Type: 
+                            </ion-label>
+                          </div> 
+                          <ion-input class="edit-input" [(ngModel)]="fuelType" placeholder="{{vehicle.Data.fuelType}}" type="text"></ion-input>
+                          <div class="card-subtitle">
+                            <ion-label>
+                              Engine: 
+                            </ion-label>
+                          </div> 
+                          <ion-input class="edit-input" [(ngModel)]="engine" placeholder="{{vehicle.Data.engine}}" type="text"></ion-input>
+                          <div class="card-subtitle">
+                            <ion-label>
+                              Transmission: 
+                            </ion-label>
+                          </div> 
+                          <ion-input class="edit-input" [(ngModel)]="transmission" placeholder="{{vehicle.Data.transmission}}" type="text"></ion-input>
+                          <div class="card-subtitle">
+                            <ion-label>
+                              trim: 
+                            </ion-label>
+                          </div> 
+                          <ion-input class="edit-input" [(ngModel)]="trim" placeholder="{{vehicle.Data.trim}}" type="text"></ion-input>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
+           </div> 
+        </ion-card>
+
+        <div class="class-title">
+            Odometer Information
+        </div>
+        <ion-card >
+            <div >                
+                <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                          <ion-label class="label-text">Purchase Miles</ion-label>
+                          <ion-input class="edit-input" [(ngModel)]="PurchaseMiles" placeholder="{{vehicle.Data.PurchaseMiles}}"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                          <ion-label class="label-text">Current Miles</ion-label>
+                          <ion-input class="edit-input" [(ngModel)]="CurrentMiles" placeholder="{{vehicle.Data.CurrentMiles}}"></ion-input>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
+          </div> 
+        </ion-card>
+
+        <div class="class-title">
+            Vehicle Cost
+        </div>
+        <ion-card >
+            <div >                
+                <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                          <ion-label class="label-text">Purchase Date</ion-label>
+                          <ion-input class="edit-input" [(ngModel)]="PurchaseDate" placeholder="{{vehicle.Data.PurchaseDate}}" type="date"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                          <ion-label class="label-text">Original Cost</ion-label>
+                          <ion-input class="edit-input" [(ngModel)]="OriginalCost" placeholder="{{vehicle.Data.OriginalCost}}"></ion-input>
+                      </ion-col>
+                    </ion-row>
+                </ion-grid>  
+          </div> 
+        </ion-card>
+        
+        <ion-button color='primary' expand='block' (click)="updateVehicle()">
+            UPDATE VEHICLE
+        </ion-button>
+        
+      
+      </div>
+
+
+      <div *ngIf="!vehicle.Data">
+          <ion-card >
+              <div class="card-overlay" >
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+              </div>
+          </ion-card>    
+
+      </div>
+        
+
+</ion-content>

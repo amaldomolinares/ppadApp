@@ -14,8 +14,8 @@
 
 <ion-content class="card-background-page" >
   <div *ngIf="vehicles?.Data">
-    <div class="card-div" *ngFor="let vehicle of vehicles?.Data">
-    <ion-card  [routerLink]="'/details-vehicle/' + vehicle.vinNumber" routerDirection="forward">
+    <div class="card-div" *ngFor="let vehicle of vehicles?.Data ">
+    <ion-card  [routerLink]="'/details-vehicle/' + vehicle.VehicleID" routerDirection="forward">
         <div class="card-overlay" >
           <ion-grid>
             <ion-row text-center>

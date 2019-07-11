@@ -2,81 +2,149 @@
   <ion-toolbar color="primary">
       <ion-buttons slot="start">
           <ion-back-button></ion-back-button>
-        </ion-buttons>
+       </ion-buttons>
     <ion-title>Add New Vehicle</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="card-background-page">
+  
 
-    <div padding>
-        <ion-item  >
-            <ion-icon name="search" class="icon-search" (click)="getVehicleByApi()"></ion-icon>
-            <ion-input type="text" placeholder="Vin Number" [(ngModel)]="vinNumber" class="input-search"></ion-input>
-        </ion-item>
-    </div>
-
-    <div *ngIf="vehicle.Data">
-            <ion-grid padding>
-                <ion-row>
-                  <ion-col class="border-col">
-                      <ion-input disabled="true" value="{{vehicle?.Data.make}}" placeholder="Make" class="text-disable"></ion-input>
-                  </ion-col>
-                  <ion-col>
-                      <ion-input disabled="true" placeholder="Model" value="{{vehicle?.Data.model}}" class="text-disable"></ion-input>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        <ion-input disabled="true" placeholder="Model Year" value="{{vehicle?.Data.modelYear}}" class="text-disable"></ion-input>
-                    </ion-col>
-                    <ion-col>
-                        <ion-input disabled="true" placeholder="Color" value="{{vehicle?.Data.color}}" class="text-disable"></ion-input>
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                      <ion-col>
-                          <ion-input disabled="true" placeholder="Engine" value="{{vehicle?.Data.engine}}" class="text-disable"></ion-input>
-                      </ion-col>
-                      <ion-col>
-                          <ion-input disabled="true" placeholder="Transmission" value="{{vehicle?.Data.transmission}}" class="text-disable"></ion-input>
-                      </ion-col>
-                  </ion-row>
-                  <ion-row padding-top>
-                        <ion-col>
-                            <ion-button expand="block">SAVE</ion-button>
-                        </ion-col>
-                    </ion-row>
-            </ion-grid>
+        <div class="card-div">
+          
+            <div class="class-title">
+                Car Description
             </div>
-      
-            <div *ngIf="!vehicle.Data">
-                <ion-grid padding>
-                    <ion-row>
-                      <ion-col>
-                          <ion-input disabled="true" value="Make" class="text-disable"></ion-input>
-                      </ion-col>
-                      <ion-col>
-                          <ion-input disabled="true" value="Model" class="text-disable"></ion-input>
-                      </ion-col>
-                    </ion-row>
-                    <ion-row>
+  
+          <ion-card >
+              <div >                
+                  <ion-grid>
+                      <ion-row >
                         <ion-col>
-                            <ion-input disabled="true" value="Model Year" class="text-disable"></ion-input>
+                          <ion-label class="card-subtitle">
+                              Vin Number: 
+                          </ion-label>
+                          <ion-input class="edit-input" [(ngModel)]="vinNumber" ></ion-input>
                         </ion-col>
+                      </ion-row >
+                      <ion-row >
                         <ion-col>
-                            <ion-input disabled="true" value="Color" class="text-disable"></ion-input>
+                          <div class="card-subtitle">
+                            <ion-label>
+                            Stock No: 
+                            </ion-label> 
+                          </div> 
+                            <ion-input class="edit-input" [(ngModel)]="StockNumber" ></ion-input>                       
+                          <div class="card-subtitle">
+                              <ion-label>
+                                Status: 
+                              </ion-label> 
+                          </div>
+                            <ion-input class="edit-input" [(ngModel)]="Status" ></ion-input>
                         </ion-col>
                       </ion-row>
                       <ion-row>
-                          <ion-col>
-                              <ion-input disabled="true" value="Engine" class="text-disable"></ion-input>
-                          </ion-col>
-                          <ion-col>
-                              <ion-input disabled="true" value="Transmission" class="text-disable"></ion-input>
-                          </ion-col>
-                      </ion-row>    
-                               
-                </ion-grid>
-            </div>
-</ion-content>
+                        <ion-col>
+                            <div class="card-subtitle">
+                              <ion-label>
+                                Make:
+                              </ion-label>
+                            </div> 
+                            <ion-input class="edit-input" [(ngModel)]="make" type="text" ></ion-input>
+                            <div class="card-subtitle">
+                              <ion-label>
+                                Model: 
+                              </ion-label>
+                            </div> 
+                            <ion-input class="edit-input" [(ngModel)]="model"  type="text"> </ion-input>
+                            <div class="card-subtitle">
+                              <ion-label>
+                                Model year: 
+                              </ion-label>
+                            </div>
+                            <ion-input class="edit-input" [(ngModel)]="modelYear" type="text"> </ion-input>
+                            <div class="card-subtitle">
+                              <ion-label>
+                                Color: 
+                              </ion-label>
+                            </div>
+                            <ion-input class="edit-input" [(ngModel)]="color" type="text"> </ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <div class="card-subtitle">
+                              <ion-label>
+                                Fuel Type: 
+                              </ion-label>
+                            </div> 
+                            <ion-input class="edit-input" [(ngModel)]="fuelType" type="text"></ion-input>
+                            <div class="card-subtitle">
+                              <ion-label>
+                                Engine: 
+                              </ion-label>
+                            </div> 
+                            <ion-input class="edit-input" [(ngModel)]="engine" type="text"></ion-input>
+                            <div class="card-subtitle">
+                              <ion-label>
+                                Transmission: 
+                              </ion-label>
+                            </div> 
+                            <ion-input class="edit-input" [(ngModel)]="transmission" type="text"></ion-input>
+                            <div class="card-subtitle">
+                              <ion-label>
+                                trim: 
+                              </ion-label>
+                            </div> 
+                            <ion-input class="edit-input" [(ngModel)]="trim" type="text"></ion-input>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>  
+             </div> 
+          </ion-card>
+  
+          <div class="class-title">
+              Odometer Information
+          </div>
+          <ion-card >
+              <div >                
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                            <ion-label class="label-text">Purchase Miles</ion-label>
+                            <ion-input class="edit-input" [(ngModel)]="PurchaseMiles" ></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label class="label-text">Current Miles</ion-label>
+                            <ion-input class="edit-input" [(ngModel)]="CurrentMiles" ></ion-input>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>  
+            </div> 
+          </ion-card>
+  
+          <div class="class-title">
+              Vehicle Cost
+          </div>
+          <ion-card >
+              <div >                
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                            <ion-label class="label-text">Purchase Date</ion-label>
+                            <ion-input class="edit-input" [(ngModel)]="PurchaseDate" type="date"></ion-input>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label class="label-text">Original Cost</ion-label>
+                            <ion-input class="edit-input" [(ngModel)]="OriginalCost" type="num"></ion-input>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>  
+            </div> 
+          </ion-card>
+          
+          <ion-button color='primary' expand='block' (click)="createVehicle()">
+              CREATE VEHICLE
+          </ion-button>
+          
+        
+        </div>
+  </ion-content>

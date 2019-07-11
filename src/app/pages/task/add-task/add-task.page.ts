@@ -9,24 +9,28 @@ import { TaskapiService } from 'src/app/services/taskapi.service';
 })
 export class AddTaskPage implements OnInit {
 
-  OrderID;
-  Department;
+  VehicleID;
+  EndDate;
+  InvoiceDate;
   Name;
-  Status;
   StartDate;
+  Status;
   Summary;
+  SupplierID;
+  TotalCost;
 
   constructor(private navParams: NavParams,
               public modalController: ModalController,
               private taskProvider: TaskapiService,
-              public toastController: ToastController, ) { }
+              public toastController: ToastController) { }
 
   ngOnInit() {
-    this.OrderID = this.navParams.get('orderID');
+    this.VehicleID = this.navParams.get('VehicleID');
   }
 
   saveNewTask() {
-    this.taskProvider.postNewtask(this.OrderID, this.Name, this.Status, this.StartDate, this.Summary).subscribe((task: any) => {
+    this.taskProvider.postNewtask(this.VehicleID, this.EndDate, this.InvoiceDate, this.Name, this.StartDate,
+                                  this.Status, this.Summary, this.SupplierID, this.TotalCost).subscribe((task: any) => {
       if (task.Status !== 'true') {
         this.presentToast();
         this.modalController.dismiss();
@@ -36,7 +40,7 @@ export class AddTaskPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Create new task',
+      message: 'Create New Repair',
       duration: 2000
     });
     toast.present();

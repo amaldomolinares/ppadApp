@@ -10,17 +10,22 @@ import { Router } from '@angular/router';
 })
 export class VehiclesPage implements OnInit {
 
-  vehicles;
+  vehicles: any = {};
+
 
   constructor(private vehiclesProvider: VehicleapiService,
               private router: Router) {
-                this.vehiclesProvider.getVehiclesList().subscribe(data => {
-                  this.vehicles = data;
-                  console.log(this.vehicles);
-                });
               }
 
   ngOnInit() {
+    this.loadVehicles();
+  }
+
+  loadVehicles() {
+    this.vehiclesProvider.getVehiclesList().subscribe(data => {
+      this.vehicles = data;
+      console.log(this.vehicles);
+    });
   }
 
   loadOrders(event) {
@@ -35,6 +40,4 @@ export class VehiclesPage implements OnInit {
   addNewCar() {
       this.router.navigate(['/addnewcar']);
   }
-
 }
- 

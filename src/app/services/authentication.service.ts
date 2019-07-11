@@ -14,7 +14,7 @@ export class AuthenticationService {
 
  jwt = environment.site_url + environment.User_login;
 
-  authenticationState = new BehaviorSubject(false);
+  authenticationState = new BehaviorSubject(null);
 
   constructor(private router: Router, private plt: Platform, public http: HttpClient) {
     this.plt.ready().then(() => {
@@ -26,7 +26,7 @@ export class AuthenticationService {
       if (token) {
         this.authenticationState.next(true);
         console.log(localStorage.getItem('TOKEN_KEY'));
-      } else {
+      } else if (!token) {
         this.authenticationState.next(false);
         console.log('No hay token');
       }
@@ -51,6 +51,10 @@ export class AuthenticationService {
 
   isAuthenticated() {
     return this.authenticationState.value;
+  }
+
+  register() {
+
   }
 
 }

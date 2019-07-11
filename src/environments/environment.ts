@@ -15,6 +15,8 @@ export const environment = {
     get_list_vehicles:          'Vehicles',
     get_vehicle_by_vinNumber:   'Vehicle',
     get_Vehicle_From_Api:       'NewVehicle',
+    Update_vehicle_by_id:       'UpdateVehicle',
+    Create_Vehicle:             'NewVehicle',
 
     // endpoints order
     get_list_orders:         'Orders',

@@ -2,6 +2,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -10,7 +11,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
-import { AddTaskPage } from './pages/task/add-task/add-task.page';
 import { AddTaskPageModule } from './pages/task/add-task/add-task.module';
 
 @NgModule({
@@ -21,6 +21,7 @@ import { AddTaskPageModule } from './pages/task/add-task/add-task.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     IonicStorageModule.forRoot(),
     AddTaskPageModule],
   providers: [
