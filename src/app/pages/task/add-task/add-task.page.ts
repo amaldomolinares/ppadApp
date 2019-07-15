@@ -36,7 +36,6 @@ export class AddTaskPage implements OnInit {
   getSuppliers() {
     this.supplierProvider.getListSuppliers().subscribe(data => {
       this.supplier = data;
-      console.log(this.supplier);
     });
   }
 

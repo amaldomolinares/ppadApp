@@ -18,7 +18,6 @@ orderData: any[] = [];
 
   ngOnInit() {
    this.order = this.route.snapshot.paramMap.get('id');
-   console.log(this.order);
    this.getOrderById();
   }
 
@@ -30,7 +29,6 @@ orderData: any[] = [];
   getOrderById() {
     this.orderProvider.getOrderId(this.order).subscribe((data: any) => {
       this.orderData = data;
-      console.log(this.orderData);
       return (this.orderData);
    });
  }

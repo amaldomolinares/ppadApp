@@ -47,7 +47,6 @@ export class VehicleapiService {
     trim, OriginalCost, SellingPrice, PurchaseDate,
     Status, PurchaseMiles, CurrentMiles, StockNumber, vinNumber
     };
-    console.log(data);
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     return this.http.post(this.createVehicle, data, { headers });

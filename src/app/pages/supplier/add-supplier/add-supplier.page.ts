@@ -56,12 +56,11 @@ export class AddSupplierPage implements OnInit, OnDestroy {
                 this.routerEvents.unsubscribe();
             }
 
-  createVehicle() {
+  createSupplier() {
     this.supplierProvider.postSupplier(this.NameSupplier, this.IdCompany, this.Address, this.IdCity, this.County,
                                        this.IdState, this.ZipCode, this.HomePhone, this.CellPhone, this.OfficePhone,
                                        this.Type, this.email, this.email2, this.Salesman, this.CorporateName, this.Notes,
                                        this.Account, this.IdSupplier).subscribe((data: any) => {
-                                          console.log(data);
                                           if (data.Status !== 'true') {
         this.presentToast();
         this.router.navigate(['/vehicles/']);

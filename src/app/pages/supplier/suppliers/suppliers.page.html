@@ -1,11 +1,12 @@
 <ion-header>
     <ion-toolbar color="primary">
       <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
+          <ion-back-button *ngIf="canGoBack" defaultHref="previousUrl"></ion-back-button>
+          <ion-menu-button *ngIf="!canGoBack"></ion-menu-button>
       </ion-buttons>
       <ion-title>SUPPLIERS</ion-title>
       <ion-buttons slot="end" class="icon-end" >
-        <ion-button (click)="addNewCsupplier()">
+        <ion-button (click)="addNewSupplier()">
           <ion-icon slot="icon-only" name="add-circle"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -14,14 +15,14 @@
 
 <ion-content>        
             
-        <div *ngFor="let supplier of suppliers.Data">
+        <div *ngFor="let supplier of suppliers?.Data">
             <ion-card margin-top>
                 <ion-card-header>
                     <ion-item lines="full">
                         <ion-card-subtitle slot="start">{{supplier.Address}}</ion-card-subtitle>
                         <ion-card-subtitle slot="end">{{supplier.IdCity}}</ion-card-subtitle>
                      </ion-item>
-                    <ion-card-title margin-top >{{supplier.NameSupplier}}</ion-card-title>
+                    <ion-card-title margin-top [routerLink]="'/edit-supplier/' + supplier.IdSupplier" routerDirection="forward">{{supplier.NameSupplier}}</ion-card-title>
                 </ion-card-header>
                 <ion-card-content>
                   <ion-grid>

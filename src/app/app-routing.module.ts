@@ -71,7 +71,7 @@ const routes: Routes = [
     loadChildren: './pages/supplier/suppliers/suppliers.module#SuppliersPageModule'
   },
   {
-    path: 'edit-supplier',
+    path: 'edit-supplier/:IdSupplier',
     loadChildren: './pages/supplier/edit-supplier/edit-supplier.module#EditSupplierPageModule'
   }
 ];

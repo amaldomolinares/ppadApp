@@ -36,7 +36,6 @@ export class OrderapiService {
       UserID,
       OfficeID
     };
-    console.log(data);
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     return this.http.post(this.NewOrder, data, { headers });

@@ -29,10 +29,8 @@ export class AppComponent {
       this.authenticationService.authenticationState.subscribe(state => {
         if (state === true) {
           this.router.navigate(['/menu']);
-          console.log('prueba 1');
-        } else if (state === false) {
-          this.router.navigate(['/login'], {replaceUrl: false});
-          console.log('prueba 2');
+        } else if (state === false ) {
+          this.router.navigate(['/login']);
         }
       });
 

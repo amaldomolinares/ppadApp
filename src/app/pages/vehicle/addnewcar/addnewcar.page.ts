@@ -66,7 +66,6 @@ export class AddnewcarPage implements OnInit, OnDestroy {
                                       this.fuelType, this.transmission, this.engine, this.trim,
                                       this.OriginalCost, this.SellingPrice, this.PurchaseDate,
                                       this.Status, this.PurchaseMiles, this.CurrentMiles, this.StockNumber, this.vinNumber).subscribe((data: any) => {
-                                        console.log(data);
                                         if (data.Data.VehicleID !== 'null') {
       this.presentToast();
       this.router.navigate(['/details-vehicle/' + data.Data.VehicleID]);

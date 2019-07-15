@@ -43,7 +43,6 @@ export class EditTaskPage implements OnInit {
   getSuppliers() {
     this.supplierProvider.getListSuppliers().subscribe(data => {
       this.supplier = data;
-      console.log(this.supplier);
     });
   }
 
@@ -55,7 +54,6 @@ export class EditTaskPage implements OnInit {
   getTaskByTaskID() {
     this.taskProvider.getTask(this.TaskID).subscribe((task: any) => {
       this.task = task;
-      console.log(this.task);
       return (this.task);
     });
   }

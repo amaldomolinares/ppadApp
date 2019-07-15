@@ -31,7 +31,6 @@ export class TaskapiService {
       SupplierID,
       TotalCost,
     };
-    console.log(data);
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     return this.http.post(this.NewTask, data, { headers });
@@ -52,7 +51,6 @@ export class TaskapiService {
             SupplierID,
             TotalCost,
           };
-          console.log(data);
           const headers = new HttpHeaders();
           headers.set('Content-Type', 'application/json');
           return this.http.post(this.UpdateTask + '/' + TaskID, data, { headers });

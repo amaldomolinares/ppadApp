@@ -38,7 +38,6 @@ export class EditOrderPage implements OnInit {
   getOrderById() {
     this.orderProvider.getOrderId(this.OrderID).subscribe((data: any) => {
       this.orderData = data;
-      console.log(this.orderData);
       return (this.orderData);
    });
  }

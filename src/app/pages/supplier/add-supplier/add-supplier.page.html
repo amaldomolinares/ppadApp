@@ -2,7 +2,7 @@
     <ion-toolbar color="primary">
       <ion-buttons slot="start">
           <ion-back-button *ngIf="canGoBack" defaultHref="previousUrl"></ion-back-button>
-            <ion-menu-button *ngIf="!canGoBack"></ion-menu-button>
+          <ion-menu-button *ngIf="!canGoBack"></ion-menu-button>
       </ion-buttons>
       <ion-title>Add New Supplier</ion-title>
     </ion-toolbar>
@@ -139,7 +139,7 @@
                </div> 
             </ion-card>
            
-            <ion-button color='primary' expand='block' (click)="createVehicle()">
+            <ion-button color='primary' expand='block' (click)="createSupplier()">
                 CREATE CONTACT
             </ion-button>
                       

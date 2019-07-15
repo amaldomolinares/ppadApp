@@ -16,7 +16,6 @@ export class OrdersPage {
               private router: Router) {
     this.orderProvider.loadListOrders().subscribe(data => {
       this.orders = data;
-      console.log(this.orders);
     });
   }
 

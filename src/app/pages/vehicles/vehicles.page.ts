@@ -24,7 +24,6 @@ export class VehiclesPage implements OnInit {
   loadVehicles() {
     this.vehiclesProvider.getVehiclesList().subscribe(data => {
       this.vehicles = data;
-      console.log(this.vehicles);
     });
   }
 

@@ -32,7 +32,6 @@ export class DetailsTaskPage implements OnInit {
   getTaskByTaskID() {
     this.taskProvider.getTask(this.TaskID).subscribe((task: any) => {
       this.task = task;
-      console.log(this.task);
       return (this.task);
     });
   }
@@ -46,7 +45,6 @@ export class DetailsTaskPage implements OnInit {
         this.presentToast();
      } else {
         this.taskProvider.postNoteIntask(this.Message, this.TaskID).subscribe((notes: any) => {
-          console.log(notes);
           if (notes.Status !== 'true') {
             this.ionViewWillEnter();
             this.Message = '';

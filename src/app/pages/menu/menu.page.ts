@@ -7,6 +7,7 @@ import { AuthenticationService } from '../../services/authentication.service';
   templateUrl: './menu.page.html',
   styleUrls: ['./menu.page.scss'],
 })
+
 export class MenuPage implements OnInit {
   pages = [
     {
@@ -31,20 +32,26 @@ export class MenuPage implements OnInit {
 
   constructor(private authService: AuthenticationService,
               private router: Router) {
-this.router.events.subscribe((event: RouterEvent) => {
-
-    this.selectedPath = event.url;
-
-});
-
+      this.router.events.subscribe((event: RouterEvent) => {
+      this.selectedPath = event.url;
+      });
    }
 
   ngOnInit() {
   }
 
+  ionViewWillEnter() {
+    this.authService.authenticationState.subscribe(state => {
+      if (state === true) {
+        this.router.navigate(['/menu']);
+      } else if (state === false ) {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
   logOut() {
     localStorage.removeItem('TOKEN_KEY');
-    this.router.navigate(['/login']);
     this.authService.logout();
   }
 

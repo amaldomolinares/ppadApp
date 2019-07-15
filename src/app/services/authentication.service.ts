@@ -24,12 +24,10 @@ export class AuthenticationService {
   }
 
   checkToken() {
-      if (token) {
+      if (localStorage.getItem('TOKEN_KEY')) {
         this.authenticationState.next(true);
-        console.log(localStorage.getItem('TOKEN_KEY'));
-      } else if (!token) {
+      } else if (!localStorage.getItem('TOKEN_KEY')) {
         this.authenticationState.next(false);
-        console.log('No hay token');
       }
   }
 
@@ -38,7 +36,6 @@ export class AuthenticationService {
       Email,
       Password
     };
-    console.log(data);
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     headers.set('X-API-KEY', 'PPACD@123');
@@ -48,6 +45,7 @@ export class AuthenticationService {
 
   logout() {
     this.authenticationState.next(false);
+    this.router.navigate(['/login']);
   }
 
   isAuthenticated() {
