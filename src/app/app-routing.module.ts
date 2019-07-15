@@ -61,6 +61,18 @@ const routes: Routes = [
   {
     path: 'edit-vehicle/:VehicleID',
     loadChildren: './pages/vehicle/edit-vehicle/edit-vehicle.module#EditVehiclePageModule'
+  },
+  {
+    path: 'add-supplier',
+    loadChildren: './pages/supplier/add-supplier/add-supplier.module#AddSupplierPageModule'
+  },
+  {
+    path: 'suppliers',
+    loadChildren: './pages/supplier/suppliers/suppliers.module#SuppliersPageModule'
+  },
+  {
+    path: 'edit-supplier',
+    loadChildren: './pages/supplier/edit-supplier/edit-supplier.module#EditSupplierPageModule'
   }
 ];
 

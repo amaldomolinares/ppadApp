@@ -14,7 +14,7 @@
     <ion-list>
       <ion-menu-toggle auto-hide="false" *ngFor="let page of pages">
          
-        <ion-item [routerLink]="page.url" routerDirection="root" routerLinkActive="[page.active]">
+        <ion-item [routerLink]="page.url" routerDirection="root" routerLinkActive="[page.active]" lines="full">
           <ion-label>
             {{page.title}}
           </ion-label>

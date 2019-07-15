@@ -13,13 +13,13 @@
         </h3>
     </div>
   
-    <form [formGroup]="onRegisterForm" class="list-form">
+    <form [formGroup]="onRegisterForm" class="list-form" >
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
           <ion-icon name="mail" item-start></ion-icon>
           Full Name
         </ion-label>
-        <ion-input color="success" type="text" formControlName="fullName"></ion-input>
+        <ion-input color="success" type="text" formControlName="fullName" [(ngModel)]="form.Name"></ion-input>
       </ion-item> 
       <p ion-text class="text08" *ngIf="onRegisterForm.get('fullName').touched && onRegisterForm.get('fullName').hasError('required')">
         <ion-text color="danger">
@@ -32,7 +32,7 @@
           <ion-icon name="mail" item-start></ion-icon>
           Email
         </ion-label>
-        <ion-input color="success" type="email" formControlName="email"></ion-input>
+        <ion-input color="success" type="email" formControlName="email" [(ngModel)]="form.EMail"></ion-input>
       </ion-item>
       <p ion-text class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('required')">
         <ion-text color="danger">
@@ -45,7 +45,7 @@
           <ion-icon name="lock" item-start></ion-icon>
           Password
         </ion-label>
-        <ion-input color="success" type="password" formControlName="password"></ion-input>
+        <ion-input color="success" type="password" formControlName="password" [(ngModel)]="form.Password"></ion-input>
       </ion-item>
       <p ion-text color="danger" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
         <ion-text color="danger">

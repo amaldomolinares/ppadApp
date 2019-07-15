@@ -24,6 +24,14 @@ const routes: Routes = [
       {
         path: 'vehicles',
         loadChildren: '../vehicles/vehicles.module#VehiclesPageModule'
+      },
+      {
+        path: 'addsupplier',
+        loadChildren: '../supplier/add-supplier/add-supplier.module#AddSupplierPageModule'
+      },
+      {
+        path: 'suppliers',
+        loadChildren: '../supplier/suppliers/suppliers.module#SuppliersPageModule'
       }
     ]
   }

@@ -1,0 +1,118 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>SUPPLIERS</ion-title>
+      <ion-buttons slot="end" class="icon-end" >
+        <ion-button (click)="addNewCsupplier()">
+          <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>        
+            
+        <div *ngFor="let supplier of suppliers.Data">
+            <ion-card margin-top>
+                <ion-card-header>
+                    <ion-item lines="full">
+                        <ion-card-subtitle slot="start">{{supplier.Address}}</ion-card-subtitle>
+                        <ion-card-subtitle slot="end">{{supplier.IdCity}}</ion-card-subtitle>
+                     </ion-item>
+                    <ion-card-title margin-top >{{supplier.NameSupplier}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-grid>
+                    <ion-row >
+                      <ion-col>
+                        <ion-label>
+                            <h2>Country</h2>
+                            <p>{{supplier.County}}</p> 
+                        </ion-label>
+                      </ion-col>
+                      <ion-col>
+                        <ion-label> 
+                            <h2>State</h2>
+                            <p>{{supplier.IdState}} </p>
+                        </ion-label>
+                      </ion-col>
+                      <ion-col>
+                        <ion-label> 
+                            <h2>Zip Code</h2>
+                            <p>{{supplier.ZipCode}} </p>
+                        </ion-label>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row margin-top>
+                        <ion-col>
+                          <ion-label>
+                            <h2>Office Phone</h2>
+                            <p>{{supplier.OfficePhone}}</p> 
+                          </ion-label>
+                        </ion-col>
+                        <ion-col>
+                          <ion-label> 
+                              <h2> Cell<br> Phone </h2>
+                              <p>{{supplier.CellPhone}} </p>
+                          </ion-label>
+                        </ion-col>
+                        <ion-col>
+                          <ion-label> 
+                              <h2>Home Phone</h2>
+                              <p>{{supplier.HomePhone}} </p>
+                          </ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row margin-top>
+                        <ion-col>
+                          <ion-label>
+                            <h2>Corporate Name</h2>
+                            <p>{{supplier.CorporateName}}</p> 
+                          </ion-label>
+                        </ion-col>
+                        <ion-col>
+                          <ion-label> 
+                              <h2> Salesman </h2>
+                              <p>{{supplier.Salesman_}} </p>
+                          </ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row margin-top>
+                        <ion-col>
+                          <ion-label>
+                            <h2>EMail</h2>
+                            <p>{{supplier.email}}</p> 
+                          </ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row margin-top>
+                        <ion-col>
+                          <ion-label>
+                            <h2>EMail 2</h2>
+                            <p>{{supplier.email2}}</p> 
+                          </ion-label>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row margin-top>
+                        <ion-col>
+                          <ion-label>
+                            <h2>Type</h2>
+                            <p>{{supplier.Type}}</p> 
+                          </ion-label>
+                        </ion-col>
+                        <ion-col>
+                          <ion-label> 
+                              <h2> Notes </h2>
+                              <p>{{supplier.Notes}} </p>
+                          </ion-label>
+                        </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card-content>
+            </ion-card>
+        </div>
+  
+
+</ion-content>

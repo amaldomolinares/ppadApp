@@ -9,6 +9,7 @@ export const environment = {
 
     // endponits login
     User_login: 'login',
+    User_register: 'registration',
 
     // endpoints vehicles
     site_car: 'https://vindecoder.p.rapidapi.com/decode_vin?vin=',
@@ -30,7 +31,13 @@ export const environment = {
     Update_task_by_name:    'UpdateTask',
 
     // endpoints notes
-    post_add_note_task:     'NewNote'
+    post_add_note_task:     'NewNote',
+
+    // endpoints supplier
+    get_list_suppliers:         'Suppliers',
+    get_list_supplier_by_id:    'Supplier',
+    post_add_new_supplier:      'NewSupplier',
+    Update_supplier_by_id:      'UpdSupplier',
 };
 
 /*

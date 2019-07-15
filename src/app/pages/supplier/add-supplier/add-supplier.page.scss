@@ -1,0 +1,77 @@
+.icon-end{
+    padding-right: 5px;
+}
+
+h2, h4, p {
+    color: white !important;
+    opacity: 1;
+}
+
+.align-row{
+    vertical-align: middle;
+    border: 2px solid #fff;
+    opacity: 1;
+    background-color: #cc6119;
+    border-radius: 20px;
+    
+}
+
+.class-title{
+  font-size: 1.5em !important; 
+  color: white !important;
+  padding: 10px 22px 10px;
+  background-color: darkgrey;
+  margin-bottom: 20px;
+}
+
+.edit-input{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 10px;
+}
+
+.class-title:nth-last-child(-n+1) {
+  margin-top: 50px !important;
+}
+
+.text-order{
+    font-size: 12px !important; 
+      
+}
+
+.card-background-page {
+
+    --background: linear-gradient(197deg, rgba(41,47,51,1) 0%, rgba(35,38,40,1) 45%, rgba(131,150,150,1) 100%) !important;
+
+    .card-div{
+  
+      
+      ion-card {
+        opacity: 1;
+        background-color: rgba(204,97,25,1);
+        
+      }
+    
+      .card-title {
+        font-size: 2.0em;
+        font-weight: bold;
+        color: #fff;
+      }
+    
+      .card-subtitle {
+        font-size: 1.0em;
+        line-height: 24px !important;
+        color: #fff;
+        z-index: 2;
+        opacity: 1;
+      }
+      
+      .label-text{
+        visibility: visible;
+        display: flex;
+        justify-content: center;
+        color: #fff;
+      }
+    }
+  }

@@ -13,6 +13,7 @@ const token = localStorage.getItem('TOKEN_KEY');
 export class AuthenticationService {
 
  jwt = environment.site_url + environment.User_login;
+ registerUser = environment.site_url + environment.User_register;
 
   authenticationState = new BehaviorSubject(null);
 
@@ -53,8 +54,12 @@ export class AuthenticationService {
     return this.authenticationState.value;
   }
 
-  register() {
-
+  register(form) {
+    console.log(form);
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json');
+    //headers.set('X-API-KEY', 'PPACD@123');
+    return this.http.post(this.registerUser, form, { headers });
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController, ToastController } from '@ionic/angular';
 import { TaskapiService } from 'src/app/services/taskapi.service';
+import { SupplierService } from 'src/app/services/supplier.service';
 
 @Component({
   selector: 'app-add-task',
@@ -8,6 +9,8 @@ import { TaskapiService } from 'src/app/services/taskapi.service';
   styleUrls: ['./add-task.page.scss'],
 })
 export class AddTaskPage implements OnInit {
+
+  supplier: any = {};
 
   VehicleID;
   EndDate;
@@ -22,10 +25,19 @@ export class AddTaskPage implements OnInit {
   constructor(private navParams: NavParams,
               public modalController: ModalController,
               private taskProvider: TaskapiService,
+              private supplierProvider: SupplierService,
               public toastController: ToastController) { }
 
   ngOnInit() {
     this.VehicleID = this.navParams.get('VehicleID');
+    this.getSuppliers();
+  }
+
+  getSuppliers() {
+    this.supplierProvider.getListSuppliers().subscribe(data => {
+      this.supplier = data;
+      console.log(this.supplier);
+    });
   }
 
   saveNewTask() {

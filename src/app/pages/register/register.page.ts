@@ -12,6 +12,7 @@ import { LoadingController } from '@ionic/angular';
 export class RegisterPage implements OnInit {
 
   public onRegisterForm: FormGroup;
+  form = {};
 
   // tslint:disable-next-line: variable-name
 
@@ -34,20 +35,23 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  async signUp() {
-    const loader = await this.loadingCtrl.create({
+  signUp() {
+    this.authService.register(this.form).subscribe(data => {
+        console.log(data);
+    });
+    /*const loader = await this.loadingCtrl.create({
       duration: 2000
     });
 
     loader.present();
     loader.onWillDismiss().then(() => {
       this.router.navigate(['/login']);
-    });
+    });*/
   }
 
-  // // //
   goToLogin() {
     this.router.navigate(['/login']);
   }
+
 
 }

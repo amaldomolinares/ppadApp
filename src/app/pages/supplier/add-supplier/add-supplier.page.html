@@ -1,0 +1,148 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button *ngIf="canGoBack" defaultHref="previousUrl"></ion-back-button>
+            <ion-menu-button *ngIf="!canGoBack"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Add New Supplier</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="card-background-page">
+  
+          <div class="card-div">
+            
+              <div class="class-title">
+                  Contact Data
+              </div>
+    
+            <ion-card >
+                <div >                
+                    <ion-grid>
+                        <ion-row >
+                          <ion-col>
+                            <ion-label class="card-subtitle">
+                                Name Supplier: 
+                            </ion-label>
+                            <ion-input class="edit-input" [(ngModel)]="NameSupplier" ></ion-input>
+                          </ion-col>
+                        </ion-row >
+                        <ion-row >
+                          <ion-col>
+                            <div class="card-subtitle">
+                              <ion-label>
+                              Address 
+                              </ion-label> 
+                            </div> 
+                              <ion-input class="edit-input" [(ngModel)]="Address" ></ion-input>                       
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                  City 
+                                </ion-label> 
+                              </div>
+                                <ion-input class="edit-input" [(ngModel)]="IdCity" ></ion-input>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                  Country
+                                </ion-label>
+                              </div> 
+                              <ion-input class="edit-input" [(ngModel)]="County" type="text" ></ion-input>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                  State 
+                                </ion-label>
+                              </div> 
+                              <ion-input class="edit-input" [(ngModel)]="IdState"  type="text"> </ion-input>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                  ZipCode: 
+                                </ion-label>
+                              </div>
+                              <ion-input class="edit-input" [(ngModel)]="ZipCode" type="text"> </ion-input>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                  Type 
+                                </ion-label>
+                              </div> 
+                              <ion-input class="edit-input" [(ngModel)]="Type" type="text"></ion-input>   
+                              <div class="card-subtitle">
+                                <ion-label>
+                                    Salesman
+                                </ion-label>
+                              </div> 
+                              <ion-input class="edit-input" [(ngModel)]="Salesman_" type="text"></ion-input>                          
+                          </ion-col>
+                          <ion-col>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                  Cell Phone
+                                </ion-label>
+                              </div> 
+                              <ion-input class="edit-input" [(ngModel)]="CellPhone" type="text"></ion-input>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                  Offcie Phone
+                                </ion-label>
+                              </div>
+                              <ion-input class="edit-input" [(ngModel)]="OfficePhone" type="text"></ion-input>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                    Home Phone 
+                                </ion-label>
+                              </div> 
+                              <ion-input class="edit-input" [(ngModel)]="HomePhone" type="text"></ion-input>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                   Email
+                                </ion-label>
+                              </div>
+                              <ion-input class="edit-input" [(ngModel)]="email" type="text"> </ion-input>
+                              <div class="card-subtitle">
+                                <ion-label>
+                                   Email 2
+                                </ion-label>
+                              </div>
+                                <ion-input class="edit-input" [(ngModel)]="email2" type="text"> </ion-input>
+                              <div class="card-subtitle">
+                                  <ion-label>
+                                      Corporate Name
+                                  </ion-label>
+                              </div> 
+                              <ion-input class="edit-input" [(ngModel)]="CorporateName" type="text"></ion-input>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col>
+                            <div class="card-subtitle">
+                            <ion-label>
+                                Account
+                             </ion-label>
+                           </div>
+                             <ion-input class="edit-input" [(ngModel)]="Account" type="text"> </ion-input>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                              <div class="card-subtitle">
+                              <ion-label>
+                                  Notes
+                               </ion-label>
+                             </div>
+                               <ion-textarea rows="6" cols="12" class="edit-input" [(ngModel)]="Notes" type="text"> </ion-textarea>
+                              </ion-col>
+                          </ion-row>
+                    </ion-grid>  
+               </div> 
+            </ion-card>
+           
+            <ion-button color='primary' expand='block' (click)="createVehicle()">
+                CREATE CONTACT
+            </ion-button>
+                      
+          </div>
+    </ion-content>
+  

@@ -39,11 +39,11 @@ export class VehicleapiService {
     return this.http.get(this.vehicleFromApi + '/' + VehicleID);
   }
 
-  postVehicle(make,model, modelYear, color, fuelType, transmission, engine,
-                trim, OriginalCost, SellingPrice, PurchaseDate,
-                Status, PurchaseMiles, CurrentMiles, StockNumber, vinNumber) {
+  postVehicle(make, model, modelYear, color, fuelType, transmission, engine,
+              trim, OriginalCost, SellingPrice, PurchaseDate,
+              Status, PurchaseMiles, CurrentMiles, StockNumber, vinNumber) {
     const data = {
-    make,model, modelYear, color, fuelType, transmission, engine,
+    make, model, modelYear, color, fuelType, transmission, engine,
     trim, OriginalCost, SellingPrice, PurchaseDate,
     Status, PurchaseMiles, CurrentMiles, StockNumber, vinNumber
     };
@@ -53,11 +53,11 @@ export class VehicleapiService {
     return this.http.post(this.createVehicle, data, { headers });
     }
 
-  updateVehicle(make,model, modelYear, color, fuelType, transmission, engine,
+  updateVehicle(make, model, modelYear, color, fuelType, transmission, engine,
                 trim, VehicleID, OriginalCost, SellingPrice, PurchaseDate,
                 Status, PurchaseMiles, CurrentMiles, StockNumber) {
     const data = {
-      make,model, modelYear, color, fuelType, transmission, engine,
+      make, model, modelYear, color, fuelType, transmission, engine,
       trim, VehicleID, OriginalCost, SellingPrice, PurchaseDate,
       Status, PurchaseMiles, CurrentMiles, StockNumber
     };

@@ -1,0 +1,23 @@
+h2 {
+    text-align: center;
+    font-weight: 600;
+}
+p {
+    text-align: center;
+    color: black;
+}
+
+ion-card {
+    background-color: lightgray;
+}
+
+ion-row {
+    border: 2px solid #888888;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #888888;
+    margin-top: 20px;
+}
+
+ion-card-title {
+    text-transform: uppercase;
+}

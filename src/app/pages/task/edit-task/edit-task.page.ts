@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskapiService } from 'src/app/services/taskapi.service';
 import { ToastController } from '@ionic/angular';
+import { SupplierService } from 'src/app/services/supplier.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -9,7 +10,10 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./edit-task.page.scss'],
 })
 export class EditTaskPage implements OnInit {
-  
+
+  //get Suplier
+  supplier: any = {};
+
   //get
   TaskID: any;
   task;
@@ -26,12 +30,21 @@ export class EditTaskPage implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private taskProvider: TaskapiService,
+              private supplierProvider: SupplierService,
               public toastController: ToastController,
               private router: Router, ) { }
 
   ngOnInit() {
     this.TaskID = this.route.snapshot.paramMap.get('TaskID');
     this.getTaskByTaskID();
+    this.getSuppliers();
+  }
+
+  getSuppliers() {
+    this.supplierProvider.getListSuppliers().subscribe(data => {
+      this.supplier = data;
+      console.log(this.supplier);
+    });
   }
 
   ionViewWillEnter() {
