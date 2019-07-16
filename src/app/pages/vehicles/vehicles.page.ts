@@ -27,15 +27,6 @@ export class VehiclesPage implements OnInit {
     });
   }
 
-  loadOrders(event) {
-    setTimeout(() => {
-      event.target.complete();
-      if (this.vehicles.Data.length === 10) {
-        event.target.disabled = true;
-      }
-    }, 500);
-  }
-
   addNewCar() {
       this.router.navigate(['/addnewcar']);
   }

@@ -13,6 +13,7 @@
 </ion-header>
 
 <ion-content class="card-background-page" >
+  <ion-list>
   <div *ngIf="vehicles?.Data">
     <div class="card-div" *ngFor="let vehicle of vehicles?.Data ">
     <ion-card  [routerLink]="'/details-vehicle/' + vehicle.VehicleID" routerDirection="forward">
@@ -41,6 +42,7 @@
     </ion-card>
     </div>
   </div>
+  </ion-list>
   <div *ngIf="!vehicles?.Data">
       <div >
           <ion-card  *ngFor="let number of [0,1,2,3,4,5,6,7,8,9,10]">
@@ -58,11 +60,5 @@
           </ion-card>
       </div>
   </div>
-   <ion-infinite-scroll threshold="1000px" (ionInfinite)="loadOrders($event)">
-     <ion-infinite-scroll-content
-       loadingSpinner="bubbles"
-       loadingText="Loading Orders..."> 
-   </ion-infinite-scroll-content>
- </ion-infinite-scroll>
  
  </ion-content>
