@@ -19,7 +19,7 @@ export class MenuPage implements OnInit {
       url: '/menu/vehicles'
     },
     {
-      title: 'Add Contact',
+      title: 'Add Suppliers',
       url: '/menu/addsupplier'
     },
     {
